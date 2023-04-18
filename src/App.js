@@ -1,7 +1,7 @@
 
 import SignUpForm from './Components/SignUpForm/SignUpForm';
 import './App.css';
-import Login from './Components/login/Login';
+import Login from './Components/loginForm/Login';
 
 const App = () => {
   
