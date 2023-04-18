@@ -1,7 +1,7 @@
 
 import SignUpForm from './Components/SignUpForm/SignUpForm';
 import './App.css';
-import { BrowserRouter as Router,  Route } from 'react-router-dom';
+import { BrowserRouter as Router,  Route, Routes } from 'react-router-dom';
 import Login from './Components/loginForm/Login';
 
 const App = () => {
@@ -9,8 +9,10 @@ const App = () => {
   return (
     
     <Router>
-        <Route path="/" component={SignUpForm} />
-        <Route path="/login" component={Login} />
+        <Routes>
+        <Route path="/" element={SignUpForm} />
+        <Route path="/login" element={Login} />
+        </Routes>
     </Router>
   );
 }
