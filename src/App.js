@@ -1,10 +1,10 @@
+
 import SignUpForm from './Components/SignUpForm/SignUpForm';
 import './App.css';
-import Login from "./components/login/Login";
+import Login from './Components/login/Login';
+
 const App = () => {
   
-
-
   return (
     <div>
     <SignUpForm />
@@ -14,4 +14,3 @@ const App = () => {
 }
 
 export default App;
-
