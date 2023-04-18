@@ -1,32 +1,47 @@
-import React, { useState } from 'react';
-import './login.css';
+import React, { useState } from "react";
+import "./login.css";
+import UsernameInput from "../SignUpForm/UsernameInput";
+import PasswordInput from "../SignUpForm/PasswordInput";
 
+const Login = () => {
+//   const [username, setUsername] = useState("");
+//   const [password, setPassword] = useState("");
+  const [formValues, setFormValues] = useState({
+    username: '',
+    password: ''
+   
+});
 
-const  Login=() =>{
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-
+const [errors, setErrors] = useState({});
   const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(`Username: ${username} Password: ${password}`);
-  }
+    const newErrors = {};
+    
+    if (!formValues.username) {
+      newErrors.username = "Username is required";
+    }
+
+    if (!formValues.password) {
+      newErrors.password = "Password is required";
+    } else if (formValues.password.length < 5) {
+      newErrors.password = "Password must be at least 5 characters long";
+    }
+
+    setErrors(newErrors);
+    if (Object.keys(newErrors).length === 0) {
+      console.log("Form submitted");
+    }
+  };
 
   return (
     <div className="login-container">
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
-        <label>
-          Username:
-          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-        </label>
-        <label>
-          Password:
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        </label>
+        <UsernameInput />
+        <PasswordInput />
         <button type="submit">Login</button>
       </form>
     </div>
   );
-}
+};
 
 export default Login;
