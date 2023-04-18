@@ -8,7 +8,7 @@ import { NavDropdown } from 'react-bootstrap';
 export default function navbar() {
       return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <Link className="navbar-brand" to="/">My App</Link>
+        <Link className="navbar-brand" to="/">TakeMeOut</Link>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -18,7 +18,7 @@ export default function navbar() {
               <Link className="nav-link" to="/">Home</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/about">About</Link>
+              <Link className="nav-link" to="/Mygroups">Mygroups</Link>
             </li>
           </ul>
           <ul className="navbar-nav ml-auto">
