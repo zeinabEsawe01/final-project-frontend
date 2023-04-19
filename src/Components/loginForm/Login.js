@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./login.css";
 import UsernameInput from "../SignUpForm/UsernameInput";
 import PasswordInput from "../SignUpForm/PasswordInput";
+import Navbar from '../Navbar/homeNavbar';
 
 const Login = () => {
 //   const [username, setUsername] = useState("");
@@ -33,6 +34,8 @@ const [errors, setErrors] = useState({});
   };
 
   return (
+    <div>
+      <Navbar/>
     <div className="login-container">
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
@@ -40,6 +43,7 @@ const [errors, setErrors] = useState({});
         <PasswordInput />
         <button type="submit">Login</button>
       </form>
+    </div>
     </div>
   );
 };
