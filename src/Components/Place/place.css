@@ -1,0 +1,14 @@
+.movie-img {
+    width: 150px;
+    height: 200px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.movie-img:hover {
+    filter: brightness(80%);
+}
+
+.movie-year {
+    margin: 10px;
+}
