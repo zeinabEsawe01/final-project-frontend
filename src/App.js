@@ -4,6 +4,7 @@ import './App.css';
 import { BrowserRouter as Router,  Route, Routes } from 'react-router-dom';
 import Login from './Components/loginForm/Login';
 import Navbar from './Components/Navbar/Navbar';
+import SearchComponent from './Components/Search';
 
 const App = () => {
   
@@ -12,6 +13,7 @@ const App = () => {
     <Router>
       <div>
         <Navbar/>
+        <SearchComponent/>
       </div>
         <Routes>
         <Route path="/" element={<SignUpForm/>} />
