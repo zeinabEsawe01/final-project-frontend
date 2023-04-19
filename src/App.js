@@ -14,7 +14,6 @@ const App = () => {
       <div>
         <Navbar/>
         <SearchComponent/>
-        <landingPage/>
       </div>
         <Routes>
         <Route path="/" element={<Landing/>} />
