@@ -1,17 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Landing.css'
+import Navbar from '../Navbar/homeNavbar';
+
 const Landing = () => {
     return (
+        <div>
         <div className="landing-page container-fluid">
             <div className="landing-page-header row">
+            <Navbar/>
                 <div className="col-md-6">
                     <h1>Welcome to TakeMeOut App</h1>
                     <p>Plan your perfect trip with us today</p>
-                    <div className="d-flex ">
-                        <Link to="/signup" className=" btn btn-info mr-2" id="signup">Sign Up</Link>
-                        <Link to="/login" className="btn btn-info mr-2">Log In</Link>
-                    </div>
                 </div>
                 <div className="col-md-6">
                     <img src="https://d2rdhxfof4qmbb.cloudfront.net/wp-content/uploads/20190425170948/friends-on-road-trip.jpg" alt="Trip Planner App" className="img-fluid" />
@@ -29,6 +29,7 @@ const Landing = () => {
                 </div>
             </div>
             
+        </div>
         </div>
     );
 };
