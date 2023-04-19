@@ -43,6 +43,7 @@ const SignUpForm = () => {
         setErrors(newErrors);
         if (Object.keys(newErrors).length === 0) {
             console.log('Form submitted')
+            // createUser()
         }
     };
 
