@@ -3,8 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './SignUpForm.css';
 import UsernameInput from './UsernameInput.js';
 import PasswordInput from './PasswordInput.js';
-import Navbar from '../Navbar/homeNavbar';
-import axios from 'axios';
 
 
 const SignUpForm = () => {
@@ -12,12 +10,19 @@ const SignUpForm = () => {
         username: '',
         email: '',
         password: '',
-        groups : []
+        confirmPassword: ''
     });
+    const newUser = {
+        username: formValues.username,
+        email: formValues.email,
+        password : formValues.password,
+        groups : []
+    }
+    console.log(newUser);
 
     const [errors, setErrors] = useState({});
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         const newErrors = {};
 
@@ -46,10 +51,6 @@ const SignUpForm = () => {
         if (Object.keys(newErrors).length === 0) {
             console.log('Form submitted')
             // createUser()
-            console.log(formValues);
-            const {data} = await axios.post('http://localhost:4800/user/signup', formValues);
-            localStorage.setItem('token', data.accessToken)
-            window.location.href = '../userPage/userPage.js';
         }
     };
 
@@ -60,9 +61,6 @@ const SignUpForm = () => {
     };
 
     return (
-<div>
-<Navbar/>
-
         <div className="container">
             <div className="row justify-content-center">
                 <div className="col-lg-4 col-md-6 col-sm-6">
@@ -109,7 +107,6 @@ const SignUpForm = () => {
                     </form>
                 </div>
             </div>
-        </div>
         </div>
     );
 };
