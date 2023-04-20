@@ -3,17 +3,25 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './SignUpForm.css';
 import UsernameInput from './UsernameInput.js';
 import PasswordInput from './PasswordInput.js';
+import Navbar from '../Navbar/homeNavbar';
+import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 
 const SignUpForm = () => {
+    const navigate = useNavigate();
     const [formValues, setFormValues] = useState({
         username: '',
         email: '',
         password: '',
         confirmPassword: ''
     });
-    
-
+    const newUser = {
+        username: formValues.username,
+        email: formValues.email,
+        password : formValues.password,
+        groups : []
+    }
     const [errors, setErrors] = useState({});
 
     const handleSubmit = (e) => {
@@ -45,6 +53,10 @@ const SignUpForm = () => {
         if (Object.keys(newErrors).length === 0) {
             console.log('Form submitted')
             // createUser()
+            console.log(formValues);
+            const {data} = await axios.post('http://localhost:4800/user/signup', newUser);
+            localStorage.setItem('token', data.accessToken)
+            navigate("/userPage")
         }
     };
 
