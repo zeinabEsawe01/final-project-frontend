@@ -12,13 +12,7 @@ const SignUpForm = () => {
         password: '',
         confirmPassword: ''
     });
-    const newUser = {
-        username: formValues.username,
-        email: formValues.email,
-        password : formValues.password,
-        groups : []
-    }
-    console.log(newUser);
+    
 
     const [errors, setErrors] = useState({});
 
