@@ -52,8 +52,6 @@ const SignUpForm = () => {
         setErrors(newErrors);
         if (Object.keys(newErrors).length === 0) {
             console.log('Form submitted')
-            // createUser()
-            console.log(formValues);
             const {data} = await axios.post('http://localhost:4800/user/signup', newUser);
             localStorage.setItem('token', data.accessToken)
             navigate("/userPage")
