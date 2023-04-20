@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import places from '../mock-data/mock-data'; // Import the array of places
 
-function SearchComponent() {
+function SearchComponent({searchResults, updateSearchResults}) {
     const [searchQuery, setSearchQuery] = useState('');
-    const [searchResults, setSearchResults] = useState([]);
+    // const [searchResults, setSearchResults] = useState([]);
   
     const handleSearchInputChange = (event) => {
       setSearchQuery(event.target.value);
@@ -14,7 +14,8 @@ function SearchComponent() {
       const filteredPlaces = places.places.filter((place) =>
         place.location.toLowerCase().includes(searchQuery.toLowerCase())
       );
-      setSearchResults(filteredPlaces);
+      // setSearchResults(filteredPlaces);
+      updateSearchResults(filteredPlaces)
     };
   
     return (
