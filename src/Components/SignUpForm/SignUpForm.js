@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './SignUpForm.css';
 import UsernameInput from './UsernameInput.js';
 import PasswordInput from './PasswordInput.js';
+import Navbar from '../Navbar/homeNavbar';
 
 
 const SignUpForm = () => {
@@ -54,6 +55,9 @@ const SignUpForm = () => {
     };
 
     return (
+<div>
+<Navbar/>
+
         <div className="container">
             <div className="row justify-content-center">
                 <div className="col-lg-4 col-md-6 col-sm-6">
@@ -100,6 +104,7 @@ const SignUpForm = () => {
                     </form>
                 </div>
             </div>
+        </div>
         </div>
     );
 };
