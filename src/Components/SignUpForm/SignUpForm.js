@@ -24,7 +24,7 @@ const SignUpForm = () => {
     }
     const [errors, setErrors] = useState({});
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const newErrors = {};
 
