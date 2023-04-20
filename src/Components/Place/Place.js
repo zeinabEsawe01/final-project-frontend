@@ -7,14 +7,13 @@ const Place = ({ place, userGroups }) => {
   let selectedGroupTitle = ""
     
   const addPlaceSuggestion = async () =>{
-     let group =  userGroups.filter(g => g.title === selectedGroupTitle)[0]
-     group.places.push(place)
-     const res = await axios.put('/group', group);
-
+      let group =  userGroups.filter(g => g.title === selectedGroupTitle)[0]
+      group.places.push(place)
+      const res = await axios.put('/user/group', group);
   } 
 
   const handleChange = (e) => {
-     selectedGroupTitle = e.target.value
+      selectedGroupTitle = e.target.value
   }
 
   return (
