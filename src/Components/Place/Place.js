@@ -2,11 +2,11 @@ import React from "react";
 import "./place.css";
 import axios from 'axios';
 
-const Place = ({ place, groups }) => {
+const Place = ({ place, userGroups }) => {
   
   let selectedGroupTitle = ""  
   const addPlaceSuggestion = async () =>{
-     let group =  groups.filter(g => g.title === selectedGroupTitle)[0]
+     let group =  userGroups.filter(g => g.title === selectedGroupTitle)[0]
      group.places.push(place)
      const res = await axios.put('/group', group);
 
@@ -35,7 +35,7 @@ const Place = ({ place, groups }) => {
             }
       </div>
       <select className='user-groups' name="groups" id="groups" onChange={handleChange}>
-            { groups.map(g => 
+            { userGroups.map(g => 
                   <option value={g.title}>{g.title}</option>
                 ) 
             }
