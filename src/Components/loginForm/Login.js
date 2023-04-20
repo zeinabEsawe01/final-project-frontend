@@ -3,6 +3,7 @@ import "./login.css";
 import UsernameInput from "../SignUpForm/UsernameInput";
 import PasswordInput from "../SignUpForm/PasswordInput";
 import Navbar from '../Navbar/homeNavbar';
+import axios from 'axios';
 
 const Login = () => {
 //   const [username, setUsername] = useState("");
@@ -13,8 +14,9 @@ const Login = () => {
    
 });
 
-const [errors, setErrors] = useState({});
-  const handleSubmit = (e) => {
+  const [errors, setErrors] = useState({});
+
+  const handleSubmit = async (e) => {
     const newErrors = {};
     
     if (!formValues.username) {
@@ -29,7 +31,9 @@ const [errors, setErrors] = useState({});
 
     setErrors(newErrors);
     if (Object.keys(newErrors).length === 0) {
-      console.log("Form submitted");
+      const {data} = await axios.post('/user/login', formValues);
+      localStorage.setItem('token', data.accessToken)
+      window.location.href = '../userPage/userPage.js';
     }
   };
 

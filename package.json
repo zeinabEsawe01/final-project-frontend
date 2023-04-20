@@ -4,9 +4,17 @@
   "private": true,
   "proxy": "http://localhost:4800",
   "dependencies": {
+<<<<<<< HEAD
     "@restart/hooks": "^0.4.9",
+<<<<<<< HEAD
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
+=======
+=======
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+>>>>>>> d7151845477db123a8a4a907cddb90f728ce53f3
+>>>>>>> places-and-place-components
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
