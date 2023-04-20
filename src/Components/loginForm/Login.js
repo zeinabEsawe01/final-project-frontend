@@ -4,10 +4,10 @@ import UsernameInput from "../SignUpForm/UsernameInput";
 import PasswordInput from "../SignUpForm/PasswordInput";
 import Navbar from '../Navbar/homeNavbar';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-//   const [username, setUsername] = useState("");
-//   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
   const [formValues, setFormValues] = useState({
     username: '',
     password: ''
@@ -17,6 +17,7 @@ const Login = () => {
   const [errors, setErrors] = useState({});
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
     const newErrors = {};
     
     if (!formValues.username) {
@@ -31,10 +32,16 @@ const Login = () => {
 
     setErrors(newErrors);
     if (Object.keys(newErrors).length === 0) {
-      const {data} = await axios.post('/user/login', formValues);
+      const {data} = await axios.post('http://localhost:4800/user/login', formValues);
       localStorage.setItem('token', data.accessToken)
-      window.location.href = '../userPage/userPage.js';
+      navigate("/userPage")
     }
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues((prevValues) => ({ ...prevValues, [name]: value }));
+    setErrors((prevErrors) => ({ ...prevErrors, [name]: '' }));
   };
 
   return (
@@ -43,8 +50,18 @@ const Login = () => {
     <div className="login-container">
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
-        <UsernameInput />
-        <PasswordInput />
+        <UsernameInput 
+          name="username"
+          value={formValues.username}
+          onChange={handleInputChange}
+          error={errors.username}
+        />
+        <PasswordInput 
+          name="password"
+          value={formValues.password}
+          onChange={handleInputChange}
+          error={errors.password}
+        />
         <button type="submit">Login</button>
       </form>
     </div>
