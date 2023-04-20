@@ -4,7 +4,8 @@ import axios from 'axios';
 
 const Place = ({ place, userGroups }) => {
   
-  let selectedGroupTitle = ""  
+  let selectedGroupTitle = ""
+    
   const addPlaceSuggestion = async () =>{
      let group =  userGroups.filter(g => g.title === selectedGroupTitle)[0]
      group.places.push(place)
