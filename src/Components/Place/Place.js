@@ -10,7 +10,6 @@ const Place = ({ place, userGroups }) => {
      let group =  userGroups.filter(g => g.title === selectedGroupTitle)[0]
      group.places.push(place)
      const res = await axios.put(`/http://localhost:4800/group/${group._id}`, group);
-
   } 
 
   const handleChange = (e) => {
