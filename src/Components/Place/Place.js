@@ -14,7 +14,7 @@ const Place = ({ place, userGroups }) => {
   } 
 
   const handleChange = (e) => {
-     selectedGroupTitle = e.target.value
+      selectedGroupTitle = e.target.value
   }
 
   return (
