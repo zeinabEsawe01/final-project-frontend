@@ -4,9 +4,8 @@ import "./sidebar.css";
 import Search from '../Search/Search';
 
 
-export default function UserPage() {
+export default function UserPage({userGroups}) {
     const [isOpen, setIsOpen] = useState(false);
-    const [userGroups, setUserGroups] = useState([]);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);

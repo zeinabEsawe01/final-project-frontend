@@ -17,6 +17,8 @@ const App = () => {
 
   const [places , setPlaces] = useState([])
   const [coordinates , serCoordinates] = useState({})
+  const [userGroups, setUserGroups] = useState([])
+  const [user, setUser] = useState({})
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(({coords:{latitude,longitude}}) => {
@@ -32,6 +34,10 @@ const App = () => {
 
   console.log(places);
 
+  const updateUserGroups = (userGroups) => {
+    setUserGroups(userGroups);
+  }
+
   return (
     
     <Router>
@@ -45,7 +51,8 @@ const App = () => {
         <Route path="/map" element={<Map/>} />
         <Route path="/signup" element={<SignUpForm/>} />
         <Route path="/login" element={<Login/>}/>
-        <Route path="/userPage" element={<UserPage/>} />
+        <Route path="/userPage" element={<UserPage userGroups={userGroups}/>} />
+        <Route path="/myGroups" element={<MyGroups userGroups={userGroups} updateUserGroups={updateUserGroups} user={user}/>} />
 
         </Routes>
     </Router>

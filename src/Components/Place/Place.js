@@ -9,7 +9,7 @@ const Place = ({ place, userGroups }) => {
   const addPlaceSuggestion = async () =>{
      let group =  userGroups.filter(g => g.title === selectedGroupTitle)[0]
      group.places.push(place)
-     const res = await axios.put('/group', group);
+     const res = await axios.put(`/http://localhost:4800/group/${group._id}`, group);
 
   } 
 
@@ -18,7 +18,7 @@ const Place = ({ place, userGroups }) => {
   }
 
   return (
-    <div>
+    <div className="place-container">
       <span>{place.title}</span>
       <p className="place-description">{place.description}</p>
       <br />
