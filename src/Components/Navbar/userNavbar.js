@@ -18,7 +18,7 @@ export default function userNavbar() {
               <Link className="nav-link" to="/">Welcome {user.name} </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/Mygroups">Mygroups</Link>
+              <Link className="nav-link" to="/myGroups">Mygroups</Link>
             </li>
           </ul>
           <ul className="navbar-nav ml-max">
