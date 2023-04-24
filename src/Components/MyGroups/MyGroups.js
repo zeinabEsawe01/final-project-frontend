@@ -1,7 +1,10 @@
-import React from "react";
 import "./myGroups.css";
 import UserNavbar from "../Navbar/userNavbar";
 import axios from "axios";
+import React , {useEffect} from 'react';
+import Group from "../Group/group";
+import GroupForm from "../Group/group_form";
+
 
 const MyGroups = ({ userGroups, updateUserGroups, user }) => {
 
@@ -24,9 +27,10 @@ const MyGroups = ({ userGroups, updateUserGroups, user }) => {
   return (
     <div className="user-groups-container">
       <div id="user-groups">
-        {userGroups.map((ug, index) => (
+      <GroupForm />
+        {userGroups.length > 0 ? userGroups.map((ug, index) => (
           <Group key={index} userGroup={ug} />
-        ))}
+        )) : null}
       </div>
     </div>
   );

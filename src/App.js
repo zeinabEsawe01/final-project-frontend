@@ -11,6 +11,8 @@ import UserPage from './Components/userPage/userPage';
 
 import getPlaces from './Components/MapAndPlaces/index';
 import Map from './Components/MapAndPlaces/map';
+import Group from './Components/Group/group';
+import MyGroups from './Components/MyGroups/MyGroups';
 
 
 const App = () => {
@@ -42,9 +44,6 @@ const App = () => {
     
     <Router>
       <div>
-        {/* <userNavbar/> */}
-        {/* <Navbar/> */}
-        {/* <SearchComponent/> */}
       </div>
         <Routes>
         <Route path="/" element={<Landing/>} />
@@ -53,6 +52,7 @@ const App = () => {
         <Route path="/login" element={<Login/>}/>
         <Route path="/userPage" element={<UserPage userGroups={userGroups}/>} />
         <Route path="/myGroups" element={<MyGroups userGroups={userGroups} updateUserGroups={updateUserGroups} user={user}/>} />
+        <Route path="/group" element={<Group/>}/>
 
         </Routes>
     </Router>
