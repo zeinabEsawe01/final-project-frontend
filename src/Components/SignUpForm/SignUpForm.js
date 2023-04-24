@@ -66,9 +66,6 @@ const SignUpForm = ({updateUser}) => {
     };
 
     return (
-<div>
-<Navbar/>
-
         <div className="container">
             <div className="row justify-content-center">
                 <div className="col-lg-4 col-md-6 col-sm-6">
@@ -115,7 +112,6 @@ const SignUpForm = ({updateUser}) => {
                     </form>
                 </div>
             </div>
-        </div>
         </div>
     );
 };

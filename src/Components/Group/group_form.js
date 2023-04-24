@@ -1,7 +1,7 @@
 import React ,{useState} from 'react';
 
 
-function GroupForm() {
+function GroupForm({user}) {
     const [groupName,setGroupName] = useState('')
     const [groupType,setGroupType] = useState('')
     const groupTypes = ['family','friends','Work']
@@ -17,7 +17,7 @@ function GroupForm() {
 
     function addNewGroup(){
         if (group.name != '' || group.kind != '') {
-            fetch('/group', {
+            fetch(`http://localhost:4800/group/${user.userName}`, {
                 method: 'POST',
                 body: JSON.stringify(group),
                 headers: {

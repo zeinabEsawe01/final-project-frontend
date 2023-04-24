@@ -7,10 +7,13 @@ import Login from './Components/loginForm/Login';
 import Navbar from './Components/Navbar/userNavbar';
 import Landing from './Components/Landing/Landing';
 import UserPage from './Components/userPage/userPage';
+import axios from 'axios';
 
 
 import getPlaces from './Components/MapAndPlaces/index';
 import Map from './Components/MapAndPlaces/map';
+import Group from './Components/Group/group';
+import MyGroups from './Components/MyGroups/MyGroups';
 
 
 const App = () => {
@@ -35,10 +38,10 @@ const App = () => {
   console.log(places);
 
   const updateUser = async (user) => {
-    setUser(user);
+    setUser(user.user);
 
     const response = await axios.get(
-      `/http://localhost:4800/group/${user._id}`,
+      `http://localhost:4800/group/${user.user.userName}`,
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -57,16 +60,15 @@ const App = () => {
     
     <Router>
       <div>
-        {/* <userNavbar/> */}
-        {/* <Navbar/> */}
-        {/* <SearchComponent/> */}
       </div>
         <Routes>
         <Route path="/" element={<Landing/>} />
         <Route path="/map" element={<Map/>} />
         <Route path="/signup" element={<SignUpForm updateUser={updateUser}/>} />
         <Route path="/login" element={<Login updateUser={updateUser}/>}/>
-        <Route path="/userPage" element={<UserPage userGroups={userGroups}/>} />
+        <Route path="/userPage" element={<UserPage user={user} userGroups={userGroups}/>} />
+        <Route path="/myGroups" element={<MyGroups userGroups={userGroups} updateUserGroups={updateUserGroups} user={user}/>} />
+        <Route path="/group" element={<Group/>}/>
         <Route path="/myGroups" element={<MyGroups userGroups={userGroups} />} />
 
         </Routes>

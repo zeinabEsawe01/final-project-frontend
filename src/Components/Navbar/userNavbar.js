@@ -5,17 +5,14 @@ import { Link } from 'react-router-dom';
 import { NavDropdown } from 'react-bootstrap';
 
 
-export default function userNavbar() {
-  
-  let user={
-    name:"zeinab"
-  }
+export default function userNavbar({user}) {
+
       return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
-              <Link className="nav-link" to="/">Welcome {user.name} </Link>
+              <Link className="nav-link" to="/">Welcome {user.userName} </Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/myGroups">Mygroups</Link>

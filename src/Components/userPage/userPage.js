@@ -4,7 +4,7 @@ import "./sidebar.css";
 import Search from '../Search/Search';
 import GroupForm from '../Group/group_form';
 
-export default function UserPage({userGroups}) {
+export default function UserPage({user, userGroups}) {
     const [isOpen, setIsOpen] = useState(false);
     
 
@@ -15,9 +15,9 @@ export default function UserPage({userGroups}) {
 
   return (
     <div>
-        <UserNavbar/> 
+        <UserNavbar user={user}/> 
         <Search userGroups={userGroups} />
-        <GroupForm/>
+        <GroupForm user={user}/>
     </div>
         
   )
