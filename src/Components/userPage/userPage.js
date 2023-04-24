@@ -6,6 +6,7 @@ import GroupForm from '../Group/group_form';
 
 export default function UserPage({userGroups}) {
     const [isOpen, setIsOpen] = useState(false);
+    
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);

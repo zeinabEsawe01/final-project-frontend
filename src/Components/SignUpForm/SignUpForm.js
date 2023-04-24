@@ -8,7 +8,7 @@ import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
 
-const SignUpForm = () => {
+const SignUpForm = ({updateUser}) => {
     const navigate = useNavigate();
     const [formValues, setFormValues] = useState({
         username: '',
@@ -54,6 +54,7 @@ const SignUpForm = () => {
             console.log('Form submitted')
             const {data} = await axios.post('http://localhost:4800/user/signup', newUser);
             localStorage.setItem('token', data.accessToken)
+            updateUser(data.user)
             navigate("/userPage")
         }
     };

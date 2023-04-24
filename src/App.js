@@ -34,6 +34,21 @@ const App = () => {
 
   console.log(places);
 
+  const updateUser = async (user) => {
+    setUser(user);
+
+    const response = await axios.get(
+      `/http://localhost:4800/group/${user._id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }
+    );
+    const userGroupsData = response.data;
+    updateUserGroups(userGroupsData);
+  }
+
   const updateUserGroups = (userGroups) => {
     setUserGroups(userGroups);
   }
@@ -49,10 +64,10 @@ const App = () => {
         <Routes>
         <Route path="/" element={<Landing/>} />
         <Route path="/map" element={<Map/>} />
-        <Route path="/signup" element={<SignUpForm/>} />
-        <Route path="/login" element={<Login/>}/>
+        <Route path="/signup" element={<SignUpForm updateUser={updateUser}/>} />
+        <Route path="/login" element={<Login updateUser={updateUser}/>}/>
         <Route path="/userPage" element={<UserPage userGroups={userGroups}/>} />
-        <Route path="/myGroups" element={<MyGroups userGroups={userGroups} updateUserGroups={updateUserGroups} user={user}/>} />
+        <Route path="/myGroups" element={<MyGroups userGroups={userGroups} />} />
 
         </Routes>
     </Router>
