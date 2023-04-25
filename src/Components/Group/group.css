@@ -1,0 +1,19 @@
+.catalog-item-info {
+    display: block;
+    background-color: rgba(62, 55, 255, 0.767);
+    width: 150px;
+    height: 150px;
+    margin: 5px;
+    order: 3;
+    padding: 20px;
+    align-content: center;
+    align-self: center;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-radius: 10% 5%;
+}
+
+.catalog-item-info h2 {
+    color: white;
+    font-size: 20px;
+}

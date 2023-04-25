@@ -2,6 +2,7 @@ import React from 'react'
 import { FaUsers } from 'react-icons/fa';
 import GroupForm from './group_form';
 import { Link } from 'react-router-dom';
+import "./group.css"
 
 
 export default function Group({userGroup}) {
