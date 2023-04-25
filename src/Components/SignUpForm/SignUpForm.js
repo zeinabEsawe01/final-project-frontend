@@ -17,10 +17,11 @@ const SignUpForm = ({updateUser}) => {
         confirmPassword: ''
     });
     const newUser = {
-        username: formValues.username,
+        userName: formValues.username,
         email: formValues.email,
         password : formValues.password,
-        groups : []
+        groups : [],
+        favorites:[]
     }
     const [errors, setErrors] = useState({});
 

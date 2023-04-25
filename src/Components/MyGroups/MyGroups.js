@@ -5,7 +5,7 @@ import GroupForm from "../Group/group_form";
 
 
 const MyGroups = ({ userGroups}) => {
-
+  console.log(userGroups);
   return (
     <div className="user-groups-container">
       <div id="user-groups">

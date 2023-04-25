@@ -7,6 +7,7 @@ import Login from './Components/loginForm/Login';
 import Navbar from './Components/Navbar/userNavbar';
 import Landing from './Components/Landing/Landing';
 import UserPage from './Components/userPage/userPage';
+import GroupDetails from './Components/GroupDetails/GroupDetails';
 import axios from 'axios';
 
 
@@ -52,8 +53,8 @@ const App = () => {
     updateUserGroups(userGroupsData);
   }
 
-  const updateUserGroups = (userGroups) => {
-    setUserGroups(userGroups);
+  const updateUserGroups = (userGroupsData) => {
+    setUserGroups(userGroupsData);
   }
 
   return (
@@ -67,9 +68,9 @@ const App = () => {
         <Route path="/signup" element={<SignUpForm updateUser={updateUser}/>} />
         <Route path="/login" element={<Login updateUser={updateUser}/>}/>
         <Route path="/userPage" element={<UserPage user={user} userGroups={userGroups}/>} />
-        <Route path="/myGroups" element={<MyGroups userGroups={userGroups} updateUserGroups={updateUserGroups} user={user}/>} />
-        <Route path="/group" element={<Group/>}/>
         <Route path="/myGroups" element={<MyGroups userGroups={userGroups} />} />
+        <Route path="/group" element={<Group/>}/>
+        <Route path='/groupDetails/:groupId' element={<GroupDetails userGroups={userGroups} />}></Route>
 
         </Routes>
     </Router>
