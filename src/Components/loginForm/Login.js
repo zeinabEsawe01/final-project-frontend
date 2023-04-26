@@ -6,7 +6,7 @@ import Navbar from '../Navbar/homeNavbar';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = ({updateUser}) => {
   const navigate = useNavigate();
   const [formValues, setFormValues] = useState({
     username: '',
@@ -34,6 +34,7 @@ const Login = () => {
     if (Object.keys(newErrors).length === 0) {
       const {data} = await axios.post('http://localhost:4800/user/login', formValues);
       localStorage.setItem('token', data.accessToken)
+      updateUser(data.user)
       navigate("/userPage")
     }
   };

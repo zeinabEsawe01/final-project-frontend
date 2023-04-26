@@ -8,7 +8,7 @@ import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
 
-const SignUpForm = () => {
+const SignUpForm = ({updateUser}) => {
     const navigate = useNavigate();
     const [formValues, setFormValues] = useState({
         username: '',
@@ -21,7 +21,7 @@ const SignUpForm = () => {
         email: formValues.email,
         password : formValues.password,
         groups : [],
-        favorites : []
+        favorites:[]
     }
     const [errors, setErrors] = useState({});
 
@@ -55,6 +55,7 @@ const SignUpForm = () => {
             console.log('Form submitted')
             const {data} = await axios.post('http://localhost:4800/user/signup', newUser);
             localStorage.setItem('token', data.accessToken)
+            updateUser(data.user)
             navigate("/userPage")
         }
     };
@@ -66,9 +67,6 @@ const SignUpForm = () => {
     };
 
     return (
-<div>
-<Navbar/>
-
         <div className="container">
             <div className="row justify-content-center">
                 <div className="col-lg-4 col-md-6 col-sm-6">
@@ -115,7 +113,6 @@ const SignUpForm = () => {
                     </form>
                 </div>
             </div>
-        </div>
         </div>
     );
 };
