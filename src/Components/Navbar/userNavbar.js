@@ -20,8 +20,8 @@ export default function UserNavbar({user}) {
 
   return (
     <div className="Sidebar">
-      <h3>Welcome {user.name}</h3>
-      <h2>Groups</h2>
+      <h3>Welcome {user.nameName}</h3>
+      <h2>My Groups</h2>
       <ul>
         {groups.map((group, index) => (
           <li key={index}>{group}</li>
