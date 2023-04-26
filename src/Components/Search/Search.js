@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import placesData from '../../mock-data/mock-data'; // Import the array of places
 import Places from '../Places/Places';
 import './search.css'
+
+
 function SearchComponent({ userGroups}) {
     const [searchQuery, setSearchQuery] = useState('');
     const [places, setPlaces] = useState([]);

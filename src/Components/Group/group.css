@@ -1,19 +1,60 @@
-.catalog-item-info {
-    display: block;
-    background-color: rgba(62, 55, 255, 0.767);
-    width: 150px;
-    height: 150px;
-    margin: 5px;
-    order: 3;
-    padding: 20px;
-    align-content: center;
-    align-self: center;
-    color: white;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    border-radius: 10% 5%;
+.group-form-page{
+   
+}
+.GroupFormContainer{
+    background-color: #92a0df;
+    padding: 50px;
+    position: fixed;
+    top: 50px;
+    bottom: 50px;
+    margin-left: 400px;
+    align-items: center;
+    width: 80%;
+    height: 100%;
+
 }
 
-.catalog-item-info h2 {
-    color: white;
-    font-size: 20px;
-}
+.group-form-inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .group-form-inputs label {
+    margin-bottom: 5px;
+  }
+  
+  .group-type-select-container {
+    margin-top: 5px;
+  }
+  
+  .group-form-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .group-form-save-button,
+  .group-form-cancel-button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .group-form-save-button {
+    background-color: #007bff;
+    margin-right: 5px;
+  }
+  
+  .group-form-cancel-button {
+    background-color: #dc3545;
+  }
+  
+  .group-form-save-button:hover,
+  .group-form-cancel-button:hover {
+    opacity: 0.8;
+  }

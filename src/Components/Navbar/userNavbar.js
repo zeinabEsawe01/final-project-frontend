@@ -1,41 +1,54 @@
 import React , {useState} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
-import { FaUserCircle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
-import { NavDropdown } from 'react-bootstrap';
 import './navbar.css';
+import { Button, Form, FormControl, InputGroup } from 'react-bootstrap';
+import { BsPlus } from 'react-icons/bs';
+import GroupForm from '../Group/group_form';
+import { FaUsers , FaSearch } from 'react-icons/fa';
+import MyGroups from '../MyGroups/MyGroups';
+import SearchComponent from '../Search/Search';
 
 
 
 export default function UserNavbar({user}) {
-  const [groups, setGroups] = useState([]);
-  const [newGroupInput, setNewGroupInput] = useState('');
+  const [showForm, setShowForm] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
 
-  const handleNewGroup = () => {
-    if (newGroupInput.trim() === '') return;
 
-    setGroups(prevGroups => [...prevGroups, newGroupInput]);
-    setNewGroupInput('');
-  };
+  function handleShowGroupClick() {
+    setShowForm(true);
+    setShowSearch(false)
+
+  }
+
+  function handleSearch(){
+    setShowSearch(true)
+    setShowForm(false);
+
+  }
 
   return (
     <div className="Sidebar">
-      <h3>Welcome {user.nameName}</h3>
-      <h2>My Groups</h2>
-      <ul>
-        {groups.map((group, index) => (
-          <li key={index}>{group}</li>
-        ))}
-      </ul>
-      <div className="NewGroup">
-        <input
-          type="text"
-          value={newGroupInput}
-          onChange={e => setNewGroupInput(e.target.value)}
-          placeholder="New group name"
-        />
-        <button onClick={handleNewGroup}>Create group</button>
+      <div className="Sidebar-header">
+        <h2>Welcome {user.userName}</h2>
       </div>
-    </div>
+      <div className="Sidebar-content">
+      <Form onSubmit={e => { e.preventDefault();}}>
+          <Button variant="outline-secondary" onClick={handleSearch}>
+          <FaSearch /> Search
+          </Button>
+      </Form>
+        <Form onSubmit={e => { e.preventDefault();}}>
+          <Button variant="outline-secondary" onClick={handleShowGroupClick}>
+          <FaUsers /> Show My Groups
+          </Button>
+      </Form>
+      </div>
+      
+      
+      {showForm && <MyGroups user={user} setShowForm={setShowForm} />}   
+      {showSearch && <SearchComponent user={user} setShowForm={setShowForm} />}   
+
+       </div>
     );
 }

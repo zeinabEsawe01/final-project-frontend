@@ -15,6 +15,7 @@ import getPlaces from './Components/MapAndPlaces/index';
 import Map from './Components/MapAndPlaces/map';
 import Group from './Components/Group/group';
 import MyGroups from './Components/MyGroups/MyGroups';
+import SearchComponent from './Components/Search/Search';
 
 
 const App = () => {
@@ -71,6 +72,7 @@ const App = () => {
         <Route path="/myGroups" element={<MyGroups userGroups={userGroups} />} />
         <Route path="/group" element={<Group/>}/>
         <Route path='/groupDetails/:groupId' element={<GroupDetails userGroups={userGroups} />}></Route>
+        <Route path="/search" element={<SearchComponent />}/>
 
         </Routes>
     </Router>

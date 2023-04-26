@@ -16,8 +16,8 @@ export default function UserPage({user, userGroups}) {
   return (
     <div>
         <UserNavbar user={user}/> 
-        <Search userGroups={userGroups} />
-        <GroupForm user={user}/>
+        {/* <Search userGroups={userGroups} /> */}
+        {/* <GroupForm user={user}/> */}
     </div>
         
   )

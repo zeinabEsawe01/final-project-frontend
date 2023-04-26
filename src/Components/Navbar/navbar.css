@@ -24,3 +24,27 @@
 .NewGroup input {
   margin-right: 8px;
 }
+
+.NewGroupForm {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 400px;
+  right: 0;
+}
+
+.NewGroupForm h2 {
+  margin-top: 0;
+}
+
+.NewGroupForm form {
+  margin-top: 16px;
+}
+
+.NewGroupForm button {
+  margin-right: 8px;
+}
