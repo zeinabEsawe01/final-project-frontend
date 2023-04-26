@@ -16,7 +16,7 @@ function AutocompletePlaces({setCoordinates}) {
 
     return (
         <Combobox onSelect={handleSelect}>
-            <ComboboxInput value={value} onChange={(e) => setValue(e.target.value)} disabled={!ready}/>
+            <ComboboxInput value={value} onChange={(e) => setValue(e.target.value)} disabled={!ready} placeholder="Type to search..."/>
             <ComboboxPopover>
             <ComboboxList>
                 {status === "OK" &&
