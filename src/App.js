@@ -8,29 +8,13 @@ import Navbar from './Components/Navbar/userNavbar';
 import Landing from './Components/Landing/Landing';
 import UserPage from './Components/userPage/userPage';
 
-
-import getPlaces from './Components/MapAndPlaces/index';
+import './Components/MapAndPlaces/map.css'
 import Map from './Components/MapAndPlaces/map';
 
 
 const App = () => {
 
-  const [places , setPlaces] = useState([])
-  const [coordinates , serCoordinates] = useState({})
 
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition(({coords:{latitude,longitude}}) => {
-      serCoordinates({lat : latitude , lng : longitude})
-    })
-  } , [])
-
-  useEffect(() => {
-    getPlaces(coordinates).then((placesData) => {
-      setPlaces(placesData.data)
-    })  
-  }, [coordinates])
-
-  console.log(places);
 
   return (
     
