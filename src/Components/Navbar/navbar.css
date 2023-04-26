@@ -1,4 +1,26 @@
-.btn .btn-info{
-    background-color: rgb(134, 40, 98);
-  color: white;
+.Sidebar {
+  background-color: #52ac2f;
+  padding: 16px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+}
+
+.Sidebar h2 {
+  margin-top: 0;
+}
+
+.Sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.Sidebar li {
+  cursor: pointer;
+}
+
+.NewGroup input {
+  margin-right: 8px;
 }
