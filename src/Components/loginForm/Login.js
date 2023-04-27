@@ -4,15 +4,14 @@ import UsernameInput from "../SignUpForm/UsernameInput";
 import PasswordInput from "../SignUpForm/PasswordInput";
 import Navbar from '../Navbar/homeNavbar';
 import axios from 'axios';
-import { useNavigate } from "react-router-dom";
+import { useNavigate , Link } from "react-router-dom";
 
 const Login = ({updateUser}) => {
   const navigate = useNavigate();
   const [formValues, setFormValues] = useState({
     username: '',
     password: ''
-   
-});
+  });
 
   const [errors, setErrors] = useState({});
 
@@ -46,26 +45,32 @@ const Login = ({updateUser}) => {
   };
 
   return (
-    <div>
+    <div className="login-page">
       <Navbar/>
-    <div className="login-container">
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <UsernameInput 
-          name="username"
-          value={formValues.username}
-          onChange={handleInputChange}
-          error={errors.username}
-        />
-        <PasswordInput 
-          name="password"
-          value={formValues.password}
-          onChange={handleInputChange}
-          error={errors.password}
-        />
-        <button type="submit">Login</button>
-      </form>
-    </div>
+      <div className="login-container">
+        <img src="https://www.bing.com/images/blob?bcid=RBZ-MzCjG4cFqxcxoNWLuD9SqbotqVTdP8Y" alt="Trip logo" className="trip-logo" />
+        <h1>Login</h1>
+        <form onSubmit={handleSubmit}>
+          <UsernameInput 
+            name="username"
+            value={formValues.username}
+            onChange={handleInputChange}
+            error={errors.username}
+          />
+          <PasswordInput 
+            name="password"
+            value={formValues.password}
+            onChange={handleInputChange}
+            error={errors.password}
+          />
+          <button type="submit">Login</button>
+        </form>
+        <div className="options">
+          <Link to="/">Back to Home</Link>
+          <br></br>
+          <Link to="/reset-password">Forgot Password?</Link>
+        </div>
+      </div>
     </div>
   );
 };

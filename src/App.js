@@ -58,6 +58,7 @@ const App = () => {
         <Route path='/groupDetails/:groupId' element={<GroupDetails userGroups={userGroups} />}></Route>
         <Route path="/search" element={<SearchComponent />}/>
 
+
         </Routes>
     </Router>
   );
