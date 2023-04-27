@@ -8,6 +8,7 @@ import Navbar from './Components/Navbar/userNavbar';
 import Landing from './Components/Landing/Landing';
 import UserPage from './Components/userPage/userPage';
 import GroupDetails from './Components/GroupDetails/GroupDetails';
+import FavoritesGroups from './Components/FavoritesGroups/FavoritesGroups';
 import axios from 'axios';
 
 import './Components/MapAndPlaces/map.css'
@@ -24,10 +25,10 @@ const App = () => {
   const [user, setUser] = useState({})
 
   const updateUser = async (user) => {
-    setUser(user.user);
-
+    setUser(user);
+    console.log(user.userName);
     const response = await axios.get(
-      `http://localhost:4800/group/${user.user.userName}`,
+      `http://localhost:4800/group/${user.userName}`,
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -42,6 +43,17 @@ const App = () => {
     setUserGroups(userGroupsData);
   }
 
+  const updateUserState = async (isFavorite, userGroupId) => {
+    let newUser = {...user}
+    if (isFavorite) {
+      newUser.favorites.push(userGroupId)
+    } else {
+      let favorites = newUser.favorites.filter(GroupId => GroupId !== userGroupId);
+      newUser.favorites = favorites
+    }
+    setUser(newUser);
+  }
+
   return (
     
     <Router>
@@ -53,7 +65,7 @@ const App = () => {
         <Route path="/signup" element={<SignUpForm updateUser={updateUser}/>} />
         <Route path="/login" element={<Login updateUser={updateUser}/>}/>
         <Route path="/userPage" element={<UserPage user={user} userGroups={userGroups}/>} />
-        <Route path="/myGroups" element={<MyGroups userGroups={userGroups} />} />
+        <Route path="/myGroups" element={<MyGroups userGroups={userGroups} user={user} updateUserState={updateUserState} />} />
         <Route path="/group" element={<Group/>}/>
         <Route path='/groupDetails/:groupId' element={<GroupDetails userGroups={userGroups} />}></Route>
         <Route path="/search" element={<SearchComponent />}/>
