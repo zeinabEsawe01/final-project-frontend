@@ -25,9 +25,9 @@ function getOptions(coordinates) {
 
 async function getPlaces(coordinates) {
     try {
-        const placesData = (await axios.get(URL,getOptions(coordinates)))
-        let places = placesData.data
-        return places
+        const response = await axios.request(getOptions(coordinates));
+	    console.log(response.data);
+        return response
     } catch (error) {
         console.log(error);
         return null 

@@ -10,8 +10,7 @@ import UserPage from './Components/userPage/userPage';
 import GroupDetails from './Components/GroupDetails/GroupDetails';
 import axios from 'axios';
 
-
-import getPlaces from './Components/MapAndPlaces/index';
+import './Components/MapAndPlaces/map.css'
 import Map from './Components/MapAndPlaces/map';
 import Group from './Components/Group/group';
 import MyGroups from './Components/MyGroups/MyGroups';
@@ -20,24 +19,9 @@ import SearchComponent from './Components/Search/Search';
 
 const App = () => {
 
-  const [places , setPlaces] = useState([])
-  const [coordinates , serCoordinates] = useState({})
+  
   const [userGroups, setUserGroups] = useState([])
   const [user, setUser] = useState({})
-
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition(({coords:{latitude,longitude}}) => {
-      serCoordinates({lat : latitude , lng : longitude})
-    })
-  } , [])
-
-  useEffect(() => {
-    getPlaces(coordinates).then((placesData) => {
-      setPlaces(placesData.data)
-    })  
-  }, [coordinates])
-
-  console.log(places);
 
   const updateUser = async (user) => {
     setUser(user.user);
