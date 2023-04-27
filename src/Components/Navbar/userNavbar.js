@@ -2,18 +2,14 @@ import React , {useState} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 import './navbar.css';
 import { Button, Form, FormControl, InputGroup } from 'react-bootstrap';
-import { BsPlus } from 'react-icons/bs';
-import GroupForm from '../Group/group_form';
 import { FaUsers , FaSearch } from 'react-icons/fa';
 import MyGroups from '../MyGroups/MyGroups';
 import SearchComponent from '../Search/Search';
 
-
-
 export default function UserNavbar({user, userGroups, updateUserState}) {
+  
   const [showForm, setShowForm] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
-
 
   function handleShowGroupClick() {
     setShowForm(true);

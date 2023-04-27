@@ -26,7 +26,7 @@ export default function Group({user, userGroup, updateUserState}) {
       const res = await axios.put(`http://localhost:4800/user/${user._id}?groupId=${userGroup._id}&add=false`);
     }
   };
-  try {
+
     return (
     <div>
       <div className="catalog-item">
@@ -40,9 +40,6 @@ export default function Group({user, userGroup, updateUserState}) {
         </div>
       </div>
     </div>
-  )}
-  catch(err){
-    console.log(err);
+  )
 
-  }
 }
