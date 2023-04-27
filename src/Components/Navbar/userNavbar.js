@@ -10,7 +10,7 @@ import SearchComponent from '../Search/Search';
 
 
 
-export default function UserNavbar({user}) {
+export default function UserNavbar({user, userGroups, updateUserState}) {
   const [showForm, setShowForm] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
 
@@ -46,8 +46,8 @@ export default function UserNavbar({user}) {
       </div>
       
       
-      {showForm && <MyGroups user={user} setShowForm={setShowForm} />}   
-      {showSearch && <SearchComponent user={user} setShowForm={setShowForm} />}   
+      {showForm && <MyGroups user={user} userGroups={userGroups} updateUserState={updateUserState}  />}   
+      {showSearch && <SearchComponent  userGroups={userGroups} />}   
 
        </div>
     );

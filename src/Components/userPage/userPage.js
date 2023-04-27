@@ -4,7 +4,7 @@ import "./sidebar.css";
 import Search from '../Search/Search';
 import GroupForm from '../Group/group_form';
 import Map from '../MapAndPlaces/map'
-export default function UserPage({user, userGroups}) {
+export default function UserPage({user, userGroups, updateUserState}) {
     const [isOpen, setIsOpen] = useState(false);
     
 
@@ -15,7 +15,7 @@ export default function UserPage({user, userGroups}) {
 
   return (
     <div>
-        <UserNavbar user={user}/> 
+        <UserNavbar user={user} userGroups={userGroups} updateUserState={updateUserState}/> 
         <Map/>
     </div>
         

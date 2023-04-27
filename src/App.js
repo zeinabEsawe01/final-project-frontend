@@ -64,11 +64,11 @@ const App = () => {
         <Route path="/map" element={<Map/>} />
         <Route path="/signup" element={<SignUpForm updateUser={updateUser}/>} />
         <Route path="/login" element={<Login updateUser={updateUser}/>}/>
-        <Route path="/userPage" element={<UserPage user={user} userGroups={userGroups}/>} />
-        <Route path="/myGroups" element={<MyGroups userGroups={userGroups} user={user} updateUserState={updateUserState} />} />
+        <Route path="/userPage" element={<UserPage user={user} userGroups={userGroups} updateUserState={updateUserState}/>} />
+        {/* <Route path="/myGroups" element={<MyGroups userGroups={userGroups} user={user} updateUserState={updateUserState} />} /> */}
         <Route path="/group" element={<Group/>}/>
         <Route path='/groupDetails/:groupId' element={<GroupDetails userGroups={userGroups} />}></Route>
-        <Route path="/search" element={<SearchComponent />}/>
+        {/* <Route path="/search" element={<SearchComponent />}/> */}
 
 
         </Routes>
