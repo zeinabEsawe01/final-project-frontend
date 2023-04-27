@@ -19,6 +19,7 @@ const App = () => {
 
   const updateUser = async (user) => {
     setUser(user);
+    const favoritesGroups = user.favorites
     const response = await axios.get(
       `http://localhost:4800/group/${user.userName}`,
       {
@@ -28,11 +29,14 @@ const App = () => {
       }
     );
     const userGroupsData = response.data;
-    updateUserGroups(userGroupsData);
+    updateUserGroups(userGroupsData, favoritesGroups);
   }
 
-  const updateUserGroups = (userGroupsData) => {
-    setUserGroups(userGroupsData);
+  const updateUserGroups = (userGroupsData, favoritesGroups) => {
+    const groups = []
+    userGroupsData.forEach(g => favoritesGroups.includes(g._id) ? groups.push(g) : null)
+    userGroupsData.forEach(g => !favoritesGroups.includes(g._id) ? groups.push(g) : null)
+    setUserGroups(groups);
   }
 
   const updateUserState = async (isFavorite, userGroupId) => {
