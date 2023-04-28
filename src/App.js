@@ -2,7 +2,7 @@
 import SignUpForm from './Components/SignUpForm/SignUpForm';
 import './App.css';
 import { BrowserRouter as Router,  Route, Routes } from 'react-router-dom';
-import React , {useEffect , useState} from 'react';
+import React , { useState} from 'react';
 import Login from './Components/loginForm/Login';
 import Navbar from './Components/Navbar/userNavbar';
 import Landing from './Components/Landing/Landing';
@@ -18,22 +18,31 @@ import MyGroups from './Components/MyGroups/MyGroups';
 
 const App = () => {
 
-  
+
   const [userGroups, setUserGroups] = useState([])
   const [user, setUser] = useState({})
 
+
+
+  
+
   const updateUser = async (user) => {
     setUser(user.user);
-
-    const response = await axios.get(
-      `http://localhost:4800/group/${user.user.userName}`,
+    
+    const response = await axios(
       {
+        method: 'get',
+        url: `http://localhost:4800/group/${user.user.userName}`,
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      }
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+    }
+      
     );
     const userGroupsData = response.data;
+    console.log(userGroupsData);
     updateUserGroups(userGroupsData);
   }
 
@@ -42,7 +51,6 @@ const App = () => {
   }
 
   return (
-    
     <Router>
       <div>
       </div>

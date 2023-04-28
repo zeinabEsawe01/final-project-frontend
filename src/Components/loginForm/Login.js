@@ -34,6 +34,7 @@ const Login = ({updateUser}) => {
     if (Object.keys(newErrors).length === 0) {
       const {data} = await axios.post('http://localhost:4800/user/login', formValues);
       localStorage.setItem('token', data.accessToken)
+      
       updateUser(data.user)
       navigate("/userPage")
     }
