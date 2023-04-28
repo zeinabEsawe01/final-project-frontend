@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import placesData from '../../mock-data/mock-data'; // Import the array of places
 import Places from '../Places/Places';
+import './search.css'
+
 
 function SearchComponent({ userGroups}) {
     const [searchQuery, setSearchQuery] = useState('');
@@ -20,8 +22,8 @@ function SearchComponent({ userGroups}) {
     };
   
     return (
-      <div>
-        <input type="text" placeholder="Type to search..." onChange={handleSearchInputChange} />
+      <div className='search-container'>  
+      <input type="text" placeholder="Type to search..." onChange={handleSearchInputChange} />
         <button onClick={handleSearchButtonClick}>Search</button>
         {places.length > 0 && (
           <Places places={places} userGroups={userGroups} />

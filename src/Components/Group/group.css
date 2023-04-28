@@ -17,3 +17,16 @@
     color: white;
     font-size: 20px;
 }
+
+
+.favorite-button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 20px;
+    color: #ccc;
+  }
+  
+  .favorite-button.active {
+    color: red;
+  }
