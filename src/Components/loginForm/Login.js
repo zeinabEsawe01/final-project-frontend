@@ -49,7 +49,7 @@ const Login = ({updateUser}) => {
     <div className="login-page">
       <Navbar/>
       <div className="login-container">
-        <img src="https://www.bing.com/images/blob?bcid=RBZ-MzCjG4cFqxcxoNWLuD9SqbotqVTdP8Y" alt="Trip logo" className="trip-logo" />
+        <img src="https://www.bing.com/images/blob?bcid=RBZ-MzCjG4cFTA" alt="Trip logo" className="trip-logo" />
         <h1>Login</h1>
         <form onSubmit={handleSubmit}>
           <UsernameInput 
