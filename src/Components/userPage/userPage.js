@@ -3,7 +3,7 @@ import UserNavbar from '../Navbar/userNavbar'
 import "./sidebar.css";
 import Map from '../MapAndPlaces/map'
 
-export default function UserPage({user, userGroups, updateUserState}) {
+export default function UserPage({user, userGroups, updateUserState, updateCoordinates,coordinates}) {
   
   const [isOpen, setIsOpen] = useState(false);
     
@@ -13,8 +13,8 @@ export default function UserPage({user, userGroups, updateUserState}) {
 
   return (
     <div>
-        <UserNavbar user={user} userGroups={userGroups} updateUserState={updateUserState}/> 
-        <Map/>
+        <UserNavbar user={user} userGroups={userGroups} updateUserState={updateUserState} updateCoordinates ={updateCoordinates}/> 
+        <Map coordinates ={coordinates}/>
     </div>
         
   )

@@ -23,9 +23,9 @@ const Place = ({ place, userGroups }) => {
       <br />
       <img className="place-img" src={place.img} alt="" />
       <br />
-      <span className="place-location">{place.location}</span>
+      {/* <span className="place-location">{place.location}</span> */}
       <br />
-      <div className='place-ratings'>
+      {/* <div className='place-ratings'>
             { place.placeRatings.map((pr) => 
                   <div className='place-rating'>
                     <span className="place-ratings-type">{pr.type}</span>
@@ -33,7 +33,7 @@ const Place = ({ place, userGroups }) => {
                   </div>
                 ) 
             }
-      </div>
+      </div> */}
       <select className='user-groups' name="groups" id="groups" onChange={handleChange}>
             { userGroups.map(g => 
                   <option value={g.title}>{g.title}</option>

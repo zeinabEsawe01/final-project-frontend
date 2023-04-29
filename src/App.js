@@ -16,8 +16,13 @@ const App = () => {
 
   const [userGroups, setUserGroups] = useState([])
   const [user, setUser] = useState({})
+  const [coordinates , setCoordinates] = useState({})
 
+  function updateCoordinates(coordinates) {
+    setCoordinates(coordinates)
+  }
 
+  console.log(coordinates);
 
   
 
@@ -68,7 +73,7 @@ const App = () => {
           <Route path="/map" element={<Map/>} />
           <Route path="/signup" element={<SignUpForm updateUser={updateUser}/>} />
           <Route path="/login" element={<Login updateUser={updateUser}/>}/>
-          <Route path="/userPage" element={<UserPage user={user} userGroups={userGroups} updateUserState={updateUserState}/>} />
+          <Route path="/userPage" element={<UserPage user={user} userGroups={userGroups} updateUserState={updateUserState} updateCoordinates = {updateCoordinates} coordinates = {coordinates}/>} />
           <Route path="/group" element={<Group/>}/>
           <Route path='/groupDetails/:groupId' element={<GroupDetails userGroups={userGroups} />}></Route>
         </Routes>

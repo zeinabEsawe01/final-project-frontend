@@ -6,7 +6,7 @@ const Places = ({places, userGroups}) => {
     return(
         <div className='places-container'>
                 { places.map((p,index) => 
-                      <Place  key={index}  place={p} userGroups={userGroups} />
+                        <Place  key={index}  place={p} userGroups={userGroups} />
                     ) 
                 }
         </div>
