@@ -37,19 +37,3 @@
     font-size: 14px;
     margin-bottom: 5px;
   }
-
-  .place-container .user-groups {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-
-  .place-container button {
-    padding: 10px;
-    font-size: 16px;
-    background-color: #008CBA;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-  }

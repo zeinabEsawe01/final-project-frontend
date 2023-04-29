@@ -1,23 +1,10 @@
 import React from "react";
 import "./place.css";
-import axios from 'axios';
 
-const Place = ({ place, userGroups }) => {
-  
-  let selectedGroupTitle = ""
-    
-  const addPlaceSuggestion = async () =>{
-     let group =  userGroups.filter(g => g.title === selectedGroupTitle)[0]
-     group.places.push(place)
-     const res = await axios.put(`/http://localhost:4800/group/${group._id}`, group);
-  } 
-
-  const handleChange = (e) => {
-      selectedGroupTitle = e.target.value
-  }
+const Place = ({ place }) => {
 
   return (
-    <div className="place-container">
+    <div>
       <span>{place.title}</span>
       <p className="place-description">{place.description}</p>
       <br />
@@ -34,13 +21,6 @@ const Place = ({ place, userGroups }) => {
                 ) 
             }
       </div>
-      <select className='user-groups' name="groups" id="groups" onChange={handleChange}>
-            { userGroups.map(g => 
-                  <option value={g.title}>{g.title}</option>
-                ) 
-            }
-      </select>
-      <button onClick={addPlaceSuggestion}>Add suggestion</button>
     </div>
   );
 };

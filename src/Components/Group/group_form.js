@@ -17,7 +17,8 @@ function GroupForm({user, setShowForm}) {
         "name" : groupName,
         "kind" : groupType,
         "members" : [],
-        "places" : []
+        "places" : [],
+        "voting" : []
     }
 
     
