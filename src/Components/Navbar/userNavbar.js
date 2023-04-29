@@ -20,7 +20,6 @@ export default function UserNavbar({user, userGroups, updateUserState ,updateCoo
   function handleSearch(){
     setShowSearch(true)
     setShowForm(false);
-
   }
 
   return (
@@ -40,7 +39,6 @@ export default function UserNavbar({user, userGroups, updateUserState ,updateCoo
           </Button>
       </Form>
       </div>
-      
       
       {showForm && <MyGroups user={user} userGroups={userGroups} updateUserState={updateUserState}  />}   
       {showSearch && <SearchComponent  userGroups={userGroups} updateCoordinates = {updateCoordinates}/>}   

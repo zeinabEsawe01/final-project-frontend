@@ -22,7 +22,6 @@ const App = () => {
     setCoordinates(coordinates)
   }
 
-  console.log(coordinates);
 
   
 
@@ -32,19 +31,15 @@ const App = () => {
     const response = await axios.get(
       `http://localhost:4800/group/${user.userName}`,
       {
-        method: 'get',
-        url: `http://localhost:4800/group/${user.user.userName}`,
         headers: {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-          }
-    }
-      
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }
     );
     const userGroupsData = response.data;
     updateUserGroups(userGroupsData, favoritesGroups);
   }
+  
 
   const updateUserGroups = (userGroupsData, favoritesGroups) => {
     const groups = []

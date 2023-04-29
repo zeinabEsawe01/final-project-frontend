@@ -28,7 +28,6 @@ function SearchComponent({userGroups,updateCoordinates}) {
       .then(places => {setPlaces(places)})
     },[coordinatesCopy , placeType])
 
-    console.log(places);
   
     return (
       <div className='search-container'>

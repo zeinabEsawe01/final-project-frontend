@@ -36,7 +36,7 @@ const Place = ({ place, userGroups }) => {
       </div> */}
       <select className='user-groups' name="groups" id="groups" onChange={handleChange}>
             { userGroups.map(g => 
-                  <option value={g.title}>{g.title}</option>
+                  <option value={g.name}>{g.name}</option>
                 ) 
             }
       </select>
