@@ -33,7 +33,7 @@ const Login = ({updateUser}) => {
     if (Object.keys(newErrors).length === 0) {
       const {data} = await axios.post('http://localhost:4800/user/login', formValues);
       localStorage.setItem('token', data.accessToken)
-      
+      localStorage.setItem('userId', data.user._id)
       updateUser(data.user)
       navigate("/userPage")
     }
@@ -47,7 +47,6 @@ const Login = ({updateUser}) => {
 
   return (
     <div className="login-page">
-      <Navbar/>
       <div className="login-container">
         <img src="https://www.bing.com/images/blob?bcid=RBZ-MzCjG4cFTA" alt="Trip logo" className="trip-logo" />
         <h1>Login</h1>
@@ -68,8 +67,6 @@ const Login = ({updateUser}) => {
         </form>
         <div className="options">
           <Link to="/">Back to Home</Link>
-          <br></br>
-          <Link to="/reset-password">Forgot Password?</Link>
         </div>
       </div>
     </div>

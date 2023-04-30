@@ -33,8 +33,10 @@ function SearchComponent({userGroups,updateCoordinates}) {
     return (
       <div>
         <div className='search-container'>
-          <AutocompletePlaces setCoordinates={updateCoordinates} setCoordinatesCopy = {setCoordinatesCopy}/>
-          <PlacesTypes setPlaceType = {setPlaceType}/>
+          <div className='Places-Search'>
+            <AutocompletePlaces setCoordinates={updateCoordinates} setCoordinatesCopy = {setCoordinatesCopy}/>
+            <PlacesTypes setPlaceType = {setPlaceType}/>
+          </div>
           <Places places = {places} userGroups = {userGroups}/>
         </div>
       </div>

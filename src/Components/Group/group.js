@@ -6,8 +6,8 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 
-
 export default function Group({user, userGroup, updateUserState}) {
+
   const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
@@ -35,8 +35,8 @@ export default function Group({user, userGroup, updateUserState}) {
         <FaUsers size={32}/>
         <Link to={`/groupDetails/${userGroup._id}`}><h2>{userGroup.name}</h2></Link>
         <button className={`favorite-button ${isFavorite ? 'active' : ''}`} onClick={handleFavoriteClick}>
-        <FontAwesomeIcon icon={faHeart} />
-      </button>
+          <FontAwesomeIcon icon={faHeart} />
+        </button>
         </div>
       </div>
     </div>

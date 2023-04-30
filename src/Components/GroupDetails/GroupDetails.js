@@ -1,12 +1,19 @@
 import React , {useEffect , useState} from 'react';
 import { useParams } from "react-router-dom";
 import "./groupDetails.css";
+import Place from '../Place/Place';
+import PlaceLike from '../PlaceLike/PlaceLike';
+import PlacesVoting from '../PlacesVoting/PlacesVoting';
 import axios from "axios";
 
-const GroupDetails = ({ userGroups }) => {
-  let { groupId } = useParams();
+
+const GroupDetails = ({ user, userGroups, updateGroupVoting }) => {
+
   const [places, setPlaces] = useState([])
-  let group = userGroups.filter((ug) => ug._id === groupId);
+
+  let { groupId } = useParams();
+  let group = userGroups.filter((ug) => ug._id === groupId)[0];
+
   useEffect(() => {
     const fetchPlaces = async () => {
       let response = await axios.get(
@@ -16,6 +23,7 @@ const GroupDetails = ({ userGroups }) => {
     };
     fetchPlaces()
   }, []);
+
   return (
     <div>
       <div>
@@ -24,19 +32,19 @@ const GroupDetails = ({ userGroups }) => {
         <br />
       </div>
       <div>
-        {group[0].members.map((m) => (
+        {group.members.map((m) => (
           <span>{m}</span>
         ))}
       </div>
       <div className="places-container">
-        {places.map(p =>
+        {places.map((p,index) =>
                         <div>
-                            <span>{p.title}</span>
-                            <span className='place-description'>{p.description}</span><br />
-                            <img className='place-img' src={p.img} alt="" /><br />
+                           <Place  key={index}  place={p} />
+                           <PlaceLike user={user} place={p} group={group} updateGroupVoting={updateGroupVoting} />
                         </div> 
-                        )} 
+        )} 
       </div>
+      <PlacesVoting  places={places} group={group} />
     </div>
   );
 };

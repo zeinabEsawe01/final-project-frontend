@@ -16,7 +16,9 @@ function GroupForm({user, setShowForm , updateGroups}) {
         "name" : groupName,
         "kind" : groupType,
         "members" : [],
-        "places" : []
+        "places" : [],
+        "voting" : [],
+        "admin"  : user._id
     }
 
     useEffect(() => {
