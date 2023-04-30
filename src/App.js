@@ -2,7 +2,7 @@
 import SignUpForm from './Components/SignUpForm/SignUpForm';
 import './App.css';
 import { BrowserRouter as Router,  Route, Routes } from 'react-router-dom';
-import React , { useState} from 'react';
+import React , { useEffect, useState} from 'react';
 import Login from './Components/loginForm/Login';
 import Landing from './Components/Landing/Landing';
 import UserPage from './Components/userPage/userPage';
@@ -22,7 +22,7 @@ const App = () => {
     setCoordinates(coordinates)
   }
 
-
+console.log(userGroups);
   
 
   const updateUser = async (user) => {
@@ -48,6 +48,7 @@ const App = () => {
     setUserGroups(groups);
   }
 
+
   const updateUserState = async (isFavorite, userGroupId) => {
     let newUser = {...user}
     if (isFavorite) {
@@ -68,7 +69,7 @@ const App = () => {
           <Route path="/map" element={<Map/>} />
           <Route path="/signup" element={<SignUpForm updateUser={updateUser}/>} />
           <Route path="/login" element={<Login updateUser={updateUser}/>}/>
-          <Route path="/userPage" element={<UserPage user={user} userGroups={userGroups} updateUserState={updateUserState} updateCoordinates = {updateCoordinates} coordinates = {coordinates}/>} />
+          <Route path="/userPage" element={<UserPage user={user} userGroups={userGroups} updateUserState={updateUserState} updateCoordinates = {updateCoordinates} coordinates = {coordinates} updateGroups = {setUserGroups}/>} />
           <Route path="/group" element={<Group/>}/>
           <Route path='/groupDetails/:groupId' element={<GroupDetails userGroups={userGroups} />}></Route>
         </Routes>

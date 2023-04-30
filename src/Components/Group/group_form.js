@@ -1,7 +1,7 @@
-import React ,{useState} from 'react';
+import React ,{useEffect, useState} from 'react';
 
 
-function GroupForm({user, setShowForm}) {
+function GroupForm({user, setShowForm , updateGroups}) {
     const [groupName,setGroupName] = useState('')
     const [groupType,setGroupType] = useState('')
     const groupTypes = ['family','friends','Work']
@@ -19,7 +19,18 @@ function GroupForm({user, setShowForm}) {
         "places" : []
     }
 
-    
+    useEffect(() => {
+      if (group.name != '' || group.kind != '') {
+        fetch(`http://localhost:4800/group/${user.userName}`, {
+            method: 'POST',
+            body: JSON.stringify(group),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        }).then(groupsData => groupsData.json())
+          .then(groups => updateGroups(groups))
+      }
+    },[])
 
     function addNewGroup(){
         if (group.name != '' || group.kind != '') {
@@ -29,7 +40,8 @@ function GroupForm({user, setShowForm}) {
                 headers: {
                     'Content-type': 'application/json; charset=UTF-8',
                 },
-            })
+            }).then(groupsData => groupsData.json())
+              .then(groups => updateGroups(groups))
         }
     }
 

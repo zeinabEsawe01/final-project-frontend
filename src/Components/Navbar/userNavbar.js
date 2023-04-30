@@ -6,7 +6,7 @@ import { FaUsers , FaSearch } from 'react-icons/fa';
 import MyGroups from '../MyGroups/MyGroups';
 import SearchComponent from '../Search/Search';
 
-export default function UserNavbar({user, userGroups, updateUserState ,updateCoordinates}) {
+export default function UserNavbar({user, userGroups, updateUserState ,updateCoordinates ,updateGroups}) {
   
   const [showForm, setShowForm] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
@@ -40,7 +40,7 @@ export default function UserNavbar({user, userGroups, updateUserState ,updateCoo
       </Form>
       </div>
       
-      {showForm && <MyGroups user={user} userGroups={userGroups} updateUserState={updateUserState}  />}   
+      {showForm && <MyGroups user={user} userGroups={userGroups} updateUserState={updateUserState}  updateGroups ={updateGroups}/>}   
       {showSearch && <SearchComponent  userGroups={userGroups} updateCoordinates = {updateCoordinates}/>}   
 
       </div>

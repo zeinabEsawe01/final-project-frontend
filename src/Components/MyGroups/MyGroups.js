@@ -1,13 +1,12 @@
 import "./myGroups.css";
-import React , {useState} from 'react';
+import React , {useEffect, useState} from 'react';
 import Group from "../Group/group";
 import GroupForm from "../Group/group_form";
 import { Button, Form, FormControl, InputGroup } from 'react-bootstrap';
 import { BsPlus } from 'react-icons/bs';
 
 
-const MyGroups = ({ user, userGroups, updateUserState}) => {
-  
+const MyGroups = ({ user, userGroups, updateUserState ,updateGroups}) => {
   const [showForm, setShowForm] = useState(false);
 
   function handleCreateGroupClick() {
@@ -27,7 +26,7 @@ const MyGroups = ({ user, userGroups, updateUserState}) => {
           </Button>
       </Form>
       </div>
-      {showForm && <GroupForm setShowForm={setShowForm} />} 
+      {showForm && <GroupForm setShowForm={setShowForm} user={user} updateGroups ={updateGroups}/>} 
 
     </div>
   );

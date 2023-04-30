@@ -1,42 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import "./place.css";
-import axios from 'axios';
 
 const Place = ({ place, userGroups }) => {
-  
-  let selectedGroupTitle = ""
-    
+  const [selectedGroup , setSelectedGroup] = useState('')
+
+  const placeInfo = {
+    'place' : place,
+    'group' : selectedGroup
+  }
+  console.log(userGroups);
   const addPlaceSuggestion = async () =>{
-     let group =  userGroups.filter(g => g.title === selectedGroupTitle)[0]
-     group.places.push(place)
-     const res = await axios.put(`/http://localhost:4800/group/${group._id}`, group);
+    fetch(`http://localhost:4800/place`, {
+      method: 'POST',
+      body: JSON.stringify({placeInfo}),
+      headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
   } 
 
-  const handleChange = (e) => {
-      selectedGroupTitle = e.target.value
-  }
-
   return (
-    <div className="place-container">
+    <div>
       <span>{place.title}</span>
       <p className="place-description">{place.description}</p>
       <br />
-      <img className="place-img" src={place.img} alt="" />
-      <br />
-      {/* <span className="place-location">{place.location}</span> */}
-      <br />
-      {/* <div className='place-ratings'>
-            { place.placeRatings.map((pr) => 
-                  <div className='place-rating'>
-                    <span className="place-ratings-type">{pr.type}</span>
-                    <span className="place-ratings-value">{pr.ratingValue}</span>
-                  </div>
-                ) 
-            }
-      </div> */}
-      <select className='user-groups' name="groups" id="groups" onChange={handleChange}>
+      <img className="place-img" src={place.photos} alt="" />
+      <br/>
+      <select className='user-groups' name="groups" id="groups" onChange={(e) => setSelectedGroup(e.target.value)}>
             { userGroups.map(g => 
-                  <option value={g.name}>{g.name}</option>
+                  <option value={g._id}>{g.name}</option>
                 ) 
             }
       </select>
