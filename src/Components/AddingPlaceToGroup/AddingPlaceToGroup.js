@@ -21,7 +21,7 @@ const AddingPlaceToGroup = ({ place, userGroups }) => {
     <div className="user-groups-container">
       <select className='user-groups' name="groups" id="groups" onChange={handleChange}>
             { userGroups.map(g => 
-                  <option value={g.title}>{g.title}</option>
+                  <option value={g.name}>{g.name}</option>
                 ) 
             }
       </select>

@@ -10,9 +10,9 @@ const Place = ({ place }) => {
       <br />
       <img className="place-img" src={place.img} alt="" />
       <br />
-      <span className="place-location">{place.location}</span>
+      {/* <span className="place-location">{place.location}</span> */}
       <br />
-      <div className='place-ratings'>
+      {/* <div className='place-ratings'>
             { place.placeRatings.map((pr) => 
                   <div className='place-rating'>
                     <span className="place-ratings-type">{pr.type}</span>
@@ -20,7 +20,7 @@ const Place = ({ place }) => {
                   </div>
                 ) 
             }
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -16,6 +16,7 @@ const MyGroups = ({ user, userGroups, updateUserState}) => {
   return (
     <div className="user-groups-container">
       <div id="user-groups">
+        {console.log(userGroups)}
         {userGroups.length > 0 ? userGroups.map((ug, index) => (
           <Group key={index} user={user} userGroup={ug} updateUserState={updateUserState} />
         )) :  <p><h5>You don't have any group Yet, </h5>

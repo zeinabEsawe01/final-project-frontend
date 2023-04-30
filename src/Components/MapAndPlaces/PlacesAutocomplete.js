@@ -2,7 +2,7 @@ import usePlacesAutocomplete , {getGeocode , getLatLng} from "use-places-autocom
 import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption} from "@reach/combobox";
 
 
-function AutocompletePlaces({setCoordinates}) {
+function AutocompletePlaces({setCoordinates,setCoordinatesCopy}) {
     const { ready, value, setValue, suggestions: { status, data }, clearSuggestions} = usePlacesAutocomplete();
 
     const handleSelect = async (address) => {
@@ -12,10 +12,12 @@ function AutocompletePlaces({setCoordinates}) {
         const results = await getGeocode({ address });
         const { lat, lng } = await getLatLng(results[0]);
         setCoordinates({ lat, lng });
+        setCoordinatesCopy({lat, lng})
     };
 
     return (
         <Combobox onSelect={handleSelect}>
+            <h5>Place:</h5>
             <ComboboxInput value={value} onChange={(e) => setValue(e.target.value)} disabled={!ready} placeholder="Type to search..."/>
             <ComboboxPopover>
             <ComboboxList>

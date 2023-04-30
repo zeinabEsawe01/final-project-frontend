@@ -4,7 +4,6 @@ import React ,{useState} from 'react';
 function GroupForm({user, setShowForm}) {
     const [groupName,setGroupName] = useState('')
     const [groupType,setGroupType] = useState('')
-
     const groupTypes = ['family','friends','Work']
 
     function handleCancelClick() {
