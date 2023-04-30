@@ -2,7 +2,7 @@
 import SignUpForm from './Components/SignUpForm/SignUpForm';
 import './App.css';
 import { BrowserRouter as Router,  Route, Routes } from 'react-router-dom';
-import React , { useState} from 'react';
+import React , { useState , useEffect} from 'react';
 import Login from './Components/loginForm/Login';
 import Landing from './Components/Landing/Landing';
 import UserPage from './Components/userPage/userPage';
@@ -22,8 +22,6 @@ const App = () => {
     setCoordinates(coordinates)
   }
 
-
-  
 
   const updateUser = async (user) => {
     setUser(user);
