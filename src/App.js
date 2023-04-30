@@ -24,6 +24,7 @@ const App = () => {
 
 
   const updateUser = async (user) => {
+    console.log(user);
     setUser(user);
     const favoritesGroups = user.favorites
     const response = await axios.get(
@@ -82,7 +83,7 @@ const App = () => {
           <Route path="/map" element={<Map/>} />
           <Route path="/signup" element={<SignUpForm updateUser={updateUser}/>} />
           <Route path="/login" element={<Login updateUser={updateUser}/>}/>
-          <Route path="/userPage" element={<UserPage user={user} userGroups={userGroups} updateUserState={updateUserState} updateCoordinates = {updateCoordinates} coordinates = {coordinates}/>} />
+          <Route path="/userPage" element={<UserPage user={user} userGroups={userGroups} updateUserState={updateUserState} updateCoordinates = {updateCoordinates} coordinates = {coordinates} updateUser={updateUser}/>} />
           <Route path="/group" element={<Group/>}/>
           <Route path='/groupDetails/:groupId' element={<GroupDetails user={user} userGroups={userGroups} updateGroupVoting={updateGroupVoting} />}></Route>
         </Routes>

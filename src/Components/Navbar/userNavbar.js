@@ -9,7 +9,7 @@ import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
 
-export default function UserNavbar({user, userGroups, updateUserState ,updateCoordinates}) {
+export default function UserNavbar({user, userGroups, updateUserState ,updateCoordinates,updateUser}) {
   
   const [showForm, setShowForm] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
@@ -40,12 +40,12 @@ export default function UserNavbar({user, userGroups, updateUserState ,updateCoo
   useEffect(() => {
     const fetchUser = async function (){
       if(localStorage.userId != undefined){
-        console.log("henry");
         const response = await axios.get(
           `http://localhost:4800/user/users/${localStorage.getItem('userId')}`
         )
         console.log(response.data);
         setCurrentUser(response.data)
+        updateUser(response.data)
       }
     
   }
