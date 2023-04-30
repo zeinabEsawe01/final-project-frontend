@@ -1,19 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState , useEffect } from 'react'
 import UserNavbar from '../Navbar/userNavbar'
 import "./sidebar.css";
 import Map from '../MapAndPlaces/map'
 
-export default function UserPage({user, userGroups, updateUserState, updateCoordinates,coordinates}) {
-  
-  const [isOpen, setIsOpen] = useState(false);
+export default function UserPage({user, userGroups, updateUserState, updateCoordinates,coordinates , updateUser}) {
     
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
-  };
 
   return (
     <div>
-        <UserNavbar user={user} userGroups={userGroups} updateUserState={updateUserState} updateCoordinates ={updateCoordinates}/> 
+        <UserNavbar user={user} userGroups={userGroups} updateUserState={updateUserState} updateCoordinates ={updateCoordinates} updateUser={updateUser}/> 
         <Map coordinates ={coordinates}/>
     </div>
         

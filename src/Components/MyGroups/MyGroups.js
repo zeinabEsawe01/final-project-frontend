@@ -27,7 +27,7 @@ const MyGroups = ({ user, userGroups, updateUserState}) => {
           </Button>
       </Form>
       </div>
-      {showForm && <GroupForm setShowForm={setShowForm} />} 
+      {showForm && <GroupForm user={user} setShowForm={setShowForm} />} 
 
     </div>
   );
