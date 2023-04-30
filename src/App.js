@@ -11,6 +11,8 @@ import axios from 'axios';
 import './Components/MapAndPlaces/map.css'
 import Map from './Components/MapAndPlaces/map';
 import Group from './Components/Group/group';
+import OurTrip from './Components/OurTrip/OurTrip';
+
 
 const App = () => {
 
@@ -87,6 +89,7 @@ const App = () => {
           <Route path="/userPage" element={<UserPage user={user} userGroups={userGroups} updateUserState={updateUserState} updateCoordinates = {updateCoordinates} coordinates = {coordinates}/>} />
           <Route path="/group" element={<Group/>}/>
           <Route path='/groupDetails/:groupId' element={<GroupDetails user={user} userGroups={userGroups} updateGroupVoting={updateGroupVoting} />}></Route>
+          <Route path='/ourTrip/:placeTitle' element={<OurTrip />}></Route>
         </Routes>
     </Router>
   );

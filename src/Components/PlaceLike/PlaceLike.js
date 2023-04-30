@@ -8,7 +8,7 @@ const PlaceLike = ({ user, place, group, updateGroupVoting }) => {
   const [isLiked, setIsLiked] = useState(false);
 
   useEffect(() => {
-    if (group.voting.filter((v) => v.placeId === place._id)[0].usersVotingId.includes(user._id)) {
+    if (group.voting.filter((v) => v.placeId === place._id)[0].usersVotingNames.includes(user.userName)) {
       setIsLiked(!isLiked);
     }
   }, []);
@@ -19,7 +19,7 @@ const PlaceLike = ({ user, place, group, updateGroupVoting }) => {
     if (!isLiked) {
       updateGroupVoting(isLiked, group._id, place._id)
       placeVoting.likes ++
-      placeVoting.usersVotingId.push(user._id)
+      placeVoting.usersVotingNames = placeVoting.usersVotingNames.push(user.userName)
       group.voting.filter(pv => pv.placeId === place._id)[0] = placeVoting
       const res = await axios.put(
         `http://localhost:4800/group/voting/${user._id}?add=true`,group
@@ -27,7 +27,7 @@ const PlaceLike = ({ user, place, group, updateGroupVoting }) => {
     } else {
       updateGroupVoting(isLiked, group._id, place._id)
       placeVoting.likes --
-      placeVoting.usersVotingId = placeVoting.usersVotingId.filter(uv => uv !== user._id)
+      placeVoting.usersVotingNames = placeVoting.usersVotingNames.filter(uv => uv !== user.userName)
       group.voting.filter(pv => pv.placeId === place._id)[0] = placeVoting
       const res = await axios.put(
         `http://localhost:4800/group/voting/${user._id}?add=false`,group

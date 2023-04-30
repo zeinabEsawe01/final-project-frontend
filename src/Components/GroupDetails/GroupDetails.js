@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import "./groupDetails.css";
 import Place from '../Place/Place';
 import PlaceLike from '../PlaceLike/PlaceLike';
+import PlacesVoting from '../PlacesVoting/PlacesVoting';
 import axios from "axios";
 
 
@@ -11,10 +12,8 @@ const GroupDetails = ({ user, userGroups, updateGroupVoting }) => {
   const [places, setPlaces] = useState([])
 
   let { groupId } = useParams();
-  let group = userGroups.filter((ug) => ug._id === groupId);
+  let group = userGroups.filter((ug) => ug._id === groupId)[0];
 
-  
-  
   useEffect(() => {
     const fetchPlaces = async () => {
       let response = await axios.get(
@@ -33,7 +32,7 @@ const GroupDetails = ({ user, userGroups, updateGroupVoting }) => {
         <br />
       </div>
       <div>
-        {group[0].members.map((m) => (
+        {group.members.map((m) => (
           <span>{m}</span>
         ))}
       </div>
@@ -43,8 +42,9 @@ const GroupDetails = ({ user, userGroups, updateGroupVoting }) => {
                            <Place  key={index}  place={p} />
                            <PlaceLike user={user} place={p} group={group} updateGroupVoting={updateGroupVoting} />
                         </div> 
-                        )} 
+        )} 
       </div>
+      <PlacesVoting  places={places} group={group} />
     </div>
   );
 };
