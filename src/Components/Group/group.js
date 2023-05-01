@@ -54,7 +54,7 @@ console.log(user)
       <div className="catalog-item">
       <Form onSubmit={e => { e.preventDefault();}}>
       <div className="catalog-item-info">
-        <FaUsers size={32}/>
+        <FaUsers size={38}/>
           <Button variant="outline-secondary" onClick={handleShowGroup}>
           {userGroup.name}
           </Button>
