@@ -45,7 +45,7 @@ console.log(user)
  };
 
  function handleShowGroup(){
-  setShowGroup(true)
+  showGroup ? setShowGroup(false) : setShowGroup(true);
  }
  console.log(userGroup);
 
