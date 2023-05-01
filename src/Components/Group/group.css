@@ -30,3 +30,9 @@
   .favorite-button.active {
     color: red;
   }
+
+  .leave-group {
+    background-color: red;
+    width: 60px;
+    height: 60px;
+}

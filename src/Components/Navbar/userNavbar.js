@@ -9,7 +9,7 @@ import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
 
-export default function UserNavbar({user, userGroups, updateUserState ,updateCoordinates,updateUser}) {
+export default function UserNavbar({user, userGroups, updateUserState, updateCoordinates, updateUser, removeUserGroup}) {
   
   const [showForm, setShowForm] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
@@ -82,7 +82,7 @@ export default function UserNavbar({user, userGroups, updateUserState ,updateCoo
       </Form>
       </div>
       
-      {showForm && <MyGroups user={user} userGroups={userGroups} updateUserState={updateUserState}/>}  
+      {showForm && <MyGroups user={user} userGroups={userGroups} updateUserState={updateUserState} removeUserGroup={removeUserGroup}/>}  
       {showSearch && <SearchComponent  userGroups={userGroups} updateCoordinates = {updateCoordinates}/>}   
 
       </div>

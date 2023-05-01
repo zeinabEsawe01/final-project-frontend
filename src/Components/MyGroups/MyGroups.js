@@ -6,7 +6,7 @@ import { Button, Form, FormControl, InputGroup } from 'react-bootstrap';
 import { BsPlus } from 'react-icons/bs';
 
 
-const MyGroups = ({ user, userGroups, updateUserState ,updateGroups}) => {
+const MyGroups = ({ user, userGroups, updateUserState, updateGroups, removeUserGroup}) => {
   const [showForm, setShowForm] = useState(false);
 
   function handleCreateGroupClick() {
@@ -17,7 +17,7 @@ const MyGroups = ({ user, userGroups, updateUserState ,updateGroups}) => {
       <div id="user-groups">
         {console.log(userGroups)}
         {userGroups.length > 0 ? userGroups.map((ug, index) => (
-          <Group key={index} user={user} userGroup={ug} updateUserState={updateUserState} />
+          <Group key={index} user={user} userGroup={ug} updateUserState={updateUserState} removeUserGroup={removeUserGroup} />
         )) :  <p><h5>You don't have any group Yet, </h5>
         make one and let's start sharing</p>}
         <Form onSubmit={e => { e.preventDefault();}}>

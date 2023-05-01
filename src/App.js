@@ -49,6 +49,17 @@ const App = () => {
     setUserGroups(groups);
   }
 
+  const removeUserGroup = (userGroupId) => {
+    const newUserGroups = [...userGroups]
+    const newUserGroupsArr = newUserGroups.filter(ug => ug._id !== userGroupId)
+    setUserGroups(newUserGroupsArr);
+    let newUser = {...user}
+    const newUserGroupsArray = newUser.groups
+    const newUserGroupsRemovingGroup = newUserGroupsArray.filter(ug => ug._id !== userGroupId)
+    newUser.groups = newUserGroupsRemovingGroup
+    setUser(newUser);
+  }
+
 
   const updateUserState = async (isFavorite, userGroupId) => {
     let newUser = {...user}
@@ -86,7 +97,7 @@ const App = () => {
           <Route path="/map" element={<Map/>} />
           <Route path="/signup" element={<SignUpForm updateUser={updateUser}/>} />
           <Route path="/login" element={<Login updateUser={updateUser}/>}/>
-          <Route path="/userPage" element={<UserPage user={user} userGroups={userGroups} updateUserState={updateUserState} updateCoordinates = {updateCoordinates} coordinates = {coordinates} updateUser={updateUser}/>} />
+          <Route path="/userPage" element={<UserPage user={user} userGroups={userGroups} updateUserState={updateUserState} updateCoordinates = {updateCoordinates} coordinates = {coordinates} updateUser={updateUser} removeUserGroup={removeUserGroup}/>} />
           <Route path="/group" element={<Group/>}/>
           <Route path='/groupDetails/:groupId' element={<GroupDetails user={user} userGroups={userGroups} updateGroupVoting={updateGroupVoting} />}></Route>
           <Route path='/ourTrip/:placeTitle' element={<OurTrip />}></Route>
