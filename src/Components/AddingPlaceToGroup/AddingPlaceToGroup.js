@@ -17,6 +17,7 @@ const AddingPlaceToGroup = ({ place, userGroups }) => {
       body: JSON.stringify({placeInfo}),
       headers: {
           'Content-type': 'application/json; charset=UTF-8',
+           Authorization: `Bearer ${localStorage.getItem('token')}`
       },
     })
   } 

@@ -13,7 +13,7 @@ const PlaceLike = ({ user, place, group, updateGroupVoting }) => {
     }
   }, []);
 
-  const handleFavoriteClick = async () => {
+  const handleLikeClick = async () => {
     setIsLiked(!isLiked);
     let placeVoting = group.voting.filter(pv => pv.placeId === place._Id)[0]
     if (!isLiked) {
@@ -36,7 +36,7 @@ const PlaceLike = ({ user, place, group, updateGroupVoting }) => {
   };
 
   return (
-    <button className={`like-button ${isLiked ? 'active' : ''}`} onClick={handleFavoriteClick}>
+    <button className={`like-button ${isLiked ? 'active' : ''}`} onClick={handleLikeClick}>
       <FontAwesomeIcon icon={faThumbsUp} />
     </button>
   );
