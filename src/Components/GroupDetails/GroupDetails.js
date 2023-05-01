@@ -5,14 +5,20 @@ import Place from '../Place/Place';
 import PlaceLike from '../PlaceLike/PlaceLike';
 import PlacesVoting from '../PlacesVoting/PlacesVoting';
 import axios from "axios";
+import AddingMember from '../AddMember/AddingMember';
 
 
-const GroupDetails = ({ user, userGroups, updateGroupVoting }) => {
+const GroupDetails = ({ user, userGroup, updateGroupVoting , userGroupId}) => {
 
   const [places, setPlaces] = useState([])
 
-  let { groupId } = useParams();
-  let group = userGroups.filter((ug) => ug._id === groupId)[0];
+  console.log(userGroup);
+
+  // let { groupId } = useParams();
+  let group = userGroup
+
+  console.log(group);
+  console.log(user);
 
   useEffect(() => {
     const fetchPlaces = async () => {
@@ -32,8 +38,10 @@ const GroupDetails = ({ user, userGroups, updateGroupVoting }) => {
         <br />
       </div>
       <div>
+        <div className=''></div>
+        {group.admin === user._id ? <AddingMember group={group} /> : null}
         {group.members.map((m) => (
-          <span>{m}</span>
+          <div>{m}</div>
         ))}
       </div>
       <div className="places-container">

@@ -12,7 +12,7 @@ import './Components/MapAndPlaces/map.css'
 import Map from './Components/MapAndPlaces/map';
 import Group from './Components/Group/group';
 import OurTrip from './Components/OurTrip/OurTrip';
-
+import AddMember from './Components/AddMember/AddingMember';
 
 const App = () => {
 
@@ -99,8 +99,10 @@ const App = () => {
           <Route path="/login" element={<Login updateUser={updateUser}/>}/>
           <Route path="/userPage" element={<UserPage user={user} userGroups={userGroups} updateUserState={updateUserState} updateCoordinates = {updateCoordinates} coordinates = {coordinates} updateUser={updateUser} removeUserGroup={removeUserGroup}/>} />
           <Route path="/group" element={<Group/>}/>
-          <Route path='/groupDetails/:groupId' element={<GroupDetails user={user} userGroups={userGroups} updateGroupVoting={updateGroupVoting} />}></Route>
+          {/* <Route path='/groupDetails/:groupId' element={<GroupDetails user={user} userGroups={userGroups} updateGroupVoting={updateGroupVoting} />}></Route> */}
           <Route path='/ourTrip/:placeTitle' element={<OurTrip />}></Route>
+          <Route path='/addMmber' element={<AddMember />}></Route>
+
         </Routes>
     </Router>
   );

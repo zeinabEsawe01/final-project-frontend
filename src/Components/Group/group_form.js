@@ -15,12 +15,12 @@ function GroupForm({user, setShowForm , updateGroups}) {
     let group = {
         "name" : groupName,
         "kind" : groupType,
-        "members" : [],
+        "members" : [user.userName],
         "places" : [],
         "voting" : [],
         "admin"  : user._id
     }
-
+    console.log(group);
     useEffect(() => {
       if (group.name != '' || group.kind != '') {
         fetch(`http://localhost:4800/group/${user.userName}`, {

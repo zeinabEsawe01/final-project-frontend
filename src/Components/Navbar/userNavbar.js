@@ -84,7 +84,7 @@ export default function UserNavbar({user, userGroups, updateUserState, updateCoo
       
       {showForm && <MyGroups user={user} userGroups={userGroups} updateUserState={updateUserState} removeUserGroup={removeUserGroup}/>}  
       {showSearch && <SearchComponent  userGroups={userGroups} updateCoordinates = {updateCoordinates}/>}   
-
+      
       </div>
     );
 }
