@@ -7,3 +7,74 @@
     margin-right: 10px;
 }
 
+.col-md-6 img {
+  width: 100%;
+  height: auto;
+
+}
+.landing-page {
+  background-color: #f5f5f5;
+}
+
+/* Style the header section */
+.landing-page-header {
+  padding: 0px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Style the h1 and p tags in the header section */
+.landing-page-header h1, 
+.landing-page-header p {
+  /* margin: 0; */
+  color: #333;
+}
+
+/* Style the image in the header section */
+.landing-page-header img {
+  max-width: 100%;
+}
+
+/* Style the content section */
+.landing-page-content {
+  padding: 40px 0;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Style the h2 tag in the content section */
+.landing-page-content h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Style the ul and li tags in the content section */
+.landing-page-content ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.landing-page-content li {
+  margin-bottom: 10px;
+}
+
+/* Style the navigation bar */
+.navbar {
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the navigation links */
+.navbar-nav li a {
+  color: #333;
+  font-weight: bold;
+}
+
+/* Style the sign up and log in buttons */
+#signup,
+#login {
+  margin-right: 10px;
+}
