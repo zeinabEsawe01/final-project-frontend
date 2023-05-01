@@ -20,7 +20,7 @@ function GroupForm({user, setShowForm , updateGroups}) {
         "voting" : [],
         "admin"  : user._id
     }
-
+    console.log(group);
     useEffect(() => {
       if (group.name != '' || group.kind != '') {
         fetch(`http://localhost:4800/group/${user.userName}`, {

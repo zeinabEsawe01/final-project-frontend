@@ -13,6 +13,7 @@ const GroupDetails = ({ user, userGroups, updateGroupVoting }) => {
 
   let { groupId } = useParams();
   let group = userGroups.filter((ug) => ug._id === groupId)[0];
+  console.log(group);
 
   useEffect(() => {
     const fetchPlaces = async () => {
