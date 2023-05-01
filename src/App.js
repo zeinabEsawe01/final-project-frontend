@@ -99,7 +99,7 @@ const App = () => {
           <Route path="/login" element={<Login updateUser={updateUser}/>}/>
           <Route path="/userPage" element={<UserPage user={user} userGroups={userGroups} updateUserState={updateUserState} updateCoordinates = {updateCoordinates} coordinates = {coordinates} updateUser={updateUser} removeUserGroup={removeUserGroup}/>} />
           <Route path="/group" element={<Group/>}/>
-          <Route path='/groupDetails/:groupId' element={<GroupDetails user={user} userGroups={userGroups} updateGroupVoting={updateGroupVoting} />}></Route>
+          {/* <Route path='/groupDetails/:groupId' element={<GroupDetails user={user} userGroups={userGroups} updateGroupVoting={updateGroupVoting} />}></Route> */}
           <Route path='/ourTrip/:placeTitle' element={<OurTrip />}></Route>
           <Route path='/addMmber' element={<AddMember />}></Route>
 

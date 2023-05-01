@@ -5,10 +5,15 @@ import "./group.css"
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
+import { Button, Form } from 'react-bootstrap';
+import GroupDetails from '../GroupDetails/GroupDetails';
+
 
 export default function Group({user, userGroup, updateUserState, removeUserGroup}) {
 
   const [isFavorite, setIsFavorite] = useState(false);
+  const [showGroup, setShowGroup] = useState(false);
+console.log(user)
 
   useEffect(() => {
     if (user.favorites.includes(userGroup._id)) {
@@ -39,13 +44,21 @@ export default function Group({user, userGroup, updateUserState, removeUserGroup
    }
  };
 
+ function handleShowGroup(){
+  setShowGroup(true)
+ }
+ console.log(userGroup);
+
     return (
     <div>
       <div className="catalog-item">
-      
+      <Form onSubmit={e => { e.preventDefault();}}>
       <div className="catalog-item-info">
         <FaUsers size={32}/>
-        <Link to={`/groupDetails/${userGroup._id}`}><h2>{userGroup.name}</h2></Link>
+          <Button variant="outline-secondary" onClick={handleShowGroup}>
+          {userGroup.name}
+          </Button>
+        {/* <Link to={`/groupDetailusersVotingNamess/${userGroup._id}`}><h2>{userGroup.name}</h2></Link> */}
         <button className={`favorite-button ${isFavorite ? 'active' : ''}`} onClick={handleFavoriteClick}>
           <FontAwesomeIcon icon={faHeart} />
         </button>
@@ -53,7 +66,9 @@ export default function Group({user, userGroup, updateUserState, removeUserGroup
           Leave group
         </button>
         </div>
+        </Form>
       </div>
+      {showGroup && <GroupDetails user={user} userGroup={userGroup} userGroupId = {userGroup._id}/>}
     </div>
   )
 

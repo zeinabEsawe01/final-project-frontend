@@ -15,7 +15,7 @@ function GroupForm({user, setShowForm , updateGroups}) {
     let group = {
         "name" : groupName,
         "kind" : groupType,
-        "members" : [],
+        "members" : [user.userName],
         "places" : [],
         "voting" : [],
         "admin"  : user._id

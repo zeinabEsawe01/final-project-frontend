@@ -8,10 +8,14 @@ import { BsPlus } from 'react-icons/bs';
 
 const MyGroups = ({ user, userGroups, updateUserState, updateGroups, removeUserGroup}) => {
   const [showForm, setShowForm] = useState(false);
+  const [currentGroups , setCurrentGroups] = useState([]);
 
   function handleCreateGroupClick() {
     setShowForm(true);
   }
+
+
+
   return (
     <div className="user-groups-container">
       <div id="user-groups">
