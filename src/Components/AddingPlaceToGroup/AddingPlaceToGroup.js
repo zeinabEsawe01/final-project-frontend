@@ -17,6 +17,7 @@ const AddingPlaceToGroup = ({ place, userGroups }) => {
       body: JSON.stringify({placeInfo}),
       headers: {
           'Content-type': 'application/json; charset=UTF-8',
+           Authorization: `Bearer ${localStorage.getItem('token')}`
       },
     })
   } 
@@ -26,6 +27,7 @@ const AddingPlaceToGroup = ({ place, userGroups }) => {
   return (
     <div className="user-groups-container">
       <select className='user-groups' name="groups" id="groups" onChange={(e) => setSelectedGroup(e.target.value)}>
+      <option>Choose your group</option>
             { userGroups.map(g => 
                   <option value={g._id}>{g.name}</option>
                 ) 

@@ -12,7 +12,7 @@ import './Components/MapAndPlaces/map.css'
 import Map from './Components/MapAndPlaces/map';
 import Group from './Components/Group/group';
 import OurTrip from './Components/OurTrip/OurTrip';
-
+import AddMember from './Components/AddMember/AddingMember';
 
 const App = () => {
 
@@ -49,6 +49,17 @@ const App = () => {
     setUserGroups(groups);
   }
 
+  const removeUserGroup = (userGroupId) => {
+    const newUserGroups = [...userGroups]
+    const newUserGroupsArr = newUserGroups.filter(ug => ug._id !== userGroupId)
+    setUserGroups(newUserGroupsArr);
+    let newUser = {...user}
+    const newUserGroupsArray = newUser.groups
+    const newUserGroupsRemovingGroup = newUserGroupsArray.filter(ug => ug._id !== userGroupId)
+    newUser.groups = newUserGroupsRemovingGroup
+    setUser(newUser);
+  }
+
 
   const updateUserState = async (isFavorite, userGroupId) => {
     let newUser = {...user}
@@ -65,11 +76,11 @@ const App = () => {
     let newUserGroups = [...userGroups]
     let group = newUserGroups.filter(g => g._id === groupId)[0]
     let placeVoting = group.voting.filter(pv => pv.placeId === placeId)[0]
-    if (isPlaceLiked) {
-      placeVoting.likes ++
+    if (!isPlaceLiked) {
+      placeVoting.likes = placeVoting.likes + 1
       placeVoting.usersVotingId.push(user._id)
     } else {
-      placeVoting.likes --
+      placeVoting.likes = placeVoting.likes - 1
       placeVoting.usersVotingId = placeVoting.usersVotingId.filter(uv => uv !== user._id)
     }
     group.voting.filter(pv => pv.placeId === placeId)[0] = placeVoting
@@ -86,10 +97,12 @@ const App = () => {
           <Route path="/map" element={<Map/>} />
           <Route path="/signup" element={<SignUpForm updateUser={updateUser}/>} />
           <Route path="/login" element={<Login updateUser={updateUser}/>}/>
-          <Route path="/userPage" element={<UserPage user={user} userGroups={userGroups} updateUserState={updateUserState} updateCoordinates = {updateCoordinates} coordinates = {coordinates} updateUser={updateUser}/>} />
+          <Route path="/userPage" element={<UserPage user={user} userGroups={userGroups} updateUserState={updateUserState} updateCoordinates = {updateCoordinates} coordinates = {coordinates} updateUser={updateUser} removeUserGroup={removeUserGroup} updateGroupVoting={updateGroupVoting}/>} />
           <Route path="/group" element={<Group/>}/>
-          <Route path='/groupDetails/:groupId' element={<GroupDetails user={user} userGroups={userGroups} updateGroupVoting={updateGroupVoting} />}></Route>
+          {/* <Route path='/groupDetails/:groupId' element={<GroupDetails user={user} userGroups={userGroups} updateGroupVoting={updateGroupVoting} />}></Route> */}
           <Route path='/ourTrip/:placeTitle' element={<OurTrip />}></Route>
+          <Route path='/addMmber' element={<AddMember />}></Route>
+
         </Routes>
     </Router>
   );

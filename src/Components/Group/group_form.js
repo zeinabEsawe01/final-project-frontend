@@ -15,12 +15,12 @@ function GroupForm({user, setShowForm , updateGroups}) {
     let group = {
         "name" : groupName,
         "kind" : groupType,
-        "members" : [],
+        "members" : [user.userName],
         "places" : [],
         "voting" : [],
         "admin"  : user._id
     }
-
+    console.log(group);
     useEffect(() => {
       if (group.name != '' || group.kind != '') {
         fetch(`http://localhost:4800/group/${user.userName}`, {
@@ -64,6 +64,7 @@ function GroupForm({user, setShowForm , updateGroups}) {
         <label htmlFor="group-type-select">Group Type</label>
         <div className="group-type-select-container">
           <select id="group-type-select" onChange={(e) => setGroupType(e.target.value)}>
+            <option>Choose Type</option>
             {groupTypes.map((type) => (
               <option key={type} value={`${type}`}>
                 {type}

@@ -22,7 +22,7 @@ const PlacesVoting = ({ places, group }) => {
     });
     const groupMembers = group.members
     for (const groupMember of groupMembers) {
-      if (!usersVotingNames.includes(groupMember)) {
+      if (!usersVotingNames.has(groupMember)) {
         isAllUsersVoting =  false
         break
       }

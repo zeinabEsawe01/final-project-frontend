@@ -5,21 +5,28 @@ import Place from '../Place/Place';
 import PlaceLike from '../PlaceLike/PlaceLike';
 import PlacesVoting from '../PlacesVoting/PlacesVoting';
 import axios from "axios";
+import AddingMember from '../AddMember/AddingMember';
 
 
-const GroupDetails = ({ user, userGroups, updateGroupVoting }) => {
+const GroupDetails = ({ user, userGroup, updateGroupVoting }) => {
 
   const [places, setPlaces] = useState([])
 
-  let { groupId } = useParams();
-  let group = userGroups.filter((ug) => ug._id === groupId)[0];
+  console.log(userGroup);
+
+  // let { groupId } = useParams();
+  let group = userGroup
+
+  console.log(group);
+  console.log(user);
 
   useEffect(() => {
     const fetchPlaces = async () => {
       let response = await axios.get(
-        `/http://localhost:4800/group/groupPlaces/${group._id}`
+        `http://localhost:4800/group/groupPlaces/${group._id}`
       );
-      setPlaces(response)
+      console.log(response.data);
+      setPlaces(response.data)
     };
     fetchPlaces()
   }, []);
@@ -27,13 +34,15 @@ const GroupDetails = ({ user, userGroups, updateGroupVoting }) => {
   return (
     <div>
       <div>
-        <span>{group.name}</span>
-        <span className="group-kind">{group.kind}</span>
+        <div>{group.name}</div>
+        <div className="group-kind">{group.kind}</div>
         <br />
       </div>
       <div>
+        {group.admin === user._id ? <AddingMember group={group} /> : null}
+        <h4>Group Members:</h4>
         {group.members.map((m) => (
-          <span>{m}</span>
+          <div>{m}</div>
         ))}
       </div>
       <div className="places-container">

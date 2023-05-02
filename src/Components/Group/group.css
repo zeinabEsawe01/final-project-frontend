@@ -1,8 +1,8 @@
 .catalog-item-info {
     display: block;
-    background-color: rgba(62, 55, 255, 0.767);
-    width: 150px;
-    height: 150px;
+    background-color: rgba(248, 204, 7, 0.767);
+    width: 200px;
+    height: 200px;
     margin: 5px;
     order: 3;
     padding: 20px;
@@ -24,9 +24,17 @@
     background-color: transparent;
     cursor: pointer;
     font-size: 20px;
-    color: #ccc;
+    color: #faf8f8;
   }
   
   .favorite-button.active {
     color: red;
+  }
+
+  .leave-group {
+    background-color: red;
+    width: 60px;
+    height: 60px;
+    margin-left: 50px;
+    margin-top: 60px;
   }
