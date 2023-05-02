@@ -1,5 +1,4 @@
 import React, { useState , useEffect } from 'react';
-
 import AutocompletePlaces from '../MapAndPlaces/PlacesAutocomplete';
 import PlacesTypes from './PlacesTypesList'
 import Places from '../Places/Places';
@@ -27,7 +26,6 @@ function SearchComponent({userGroups,updateCoordinates}) {
       .then(placesData => placesData.json())
       .then(places => {setPlaces(places)})
     },[coordinatesCopy , placeType])
-    console.log(places);
 
   
     return (

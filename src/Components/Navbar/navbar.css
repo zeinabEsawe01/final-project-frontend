@@ -2,7 +2,8 @@
   position: absolute;
   background-color: #e7cc31;
   padding: 16px;
-  position: fixed;
+  /* position: fixed; */
+  /* display: flex; */
   top: 0;
   bottom: 0;
   width: fixed;

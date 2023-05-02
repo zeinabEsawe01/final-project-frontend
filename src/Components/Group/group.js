@@ -9,7 +9,7 @@ import { Button, Form } from 'react-bootstrap';
 import GroupDetails from '../GroupDetails/GroupDetails';
 
 
-export default function Group({user, userGroup, updateUserState, removeUserGroup}) {
+export default function Group({user, userGroup, updateUserState, removeUserGroup, updateGroupVoting}) {
 
   const [isFavorite, setIsFavorite] = useState(false);
   const [showGroup, setShowGroup] = useState(false);
@@ -68,7 +68,7 @@ console.log(user)
         </div>
         </Form>
       </div>
-      {showGroup && <GroupDetails user={user} userGroup={userGroup} userGroupId = {userGroup._id}/>}
+      {showGroup && <GroupDetails user={user} userGroup={userGroup} updateGroupVoting={updateGroupVoting}/>}
     </div>
   )
 

@@ -8,7 +8,7 @@ import axios from "axios";
 import AddingMember from '../AddMember/AddingMember';
 
 
-const GroupDetails = ({ user, userGroup, updateGroupVoting , userGroupId}) => {
+const GroupDetails = ({ user, userGroup, updateGroupVoting }) => {
 
   const [places, setPlaces] = useState([])
 
@@ -23,9 +23,10 @@ const GroupDetails = ({ user, userGroup, updateGroupVoting , userGroupId}) => {
   useEffect(() => {
     const fetchPlaces = async () => {
       let response = await axios.get(
-        `/http://localhost:4800/group/groupPlaces/${group._id}`
+        `http://localhost:4800/group/groupPlaces/${group._id}`
       );
-      setPlaces(response)
+      console.log(response.data);
+      setPlaces(response.data)
     };
     fetchPlaces()
   }, []);
@@ -33,13 +34,13 @@ const GroupDetails = ({ user, userGroup, updateGroupVoting , userGroupId}) => {
   return (
     <div>
       <div>
-        <span>{group.name}</span>
-        <span className="group-kind">{group.kind}</span>
+        <div>{group.name}</div>
+        <div className="group-kind">{group.kind}</div>
         <br />
       </div>
       <div>
-        <div className=''></div>
         {group.admin === user._id ? <AddingMember group={group} /> : null}
+        <h4>Group Members:</h4>
         {group.members.map((m) => (
           <div>{m}</div>
         ))}
