@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import CustomRating from "../Rating/rating";
 import "./place.css";
 
 const Place = ({ place }) => {
@@ -9,6 +10,7 @@ const Place = ({ place }) => {
       <br />
       <img className="place-img" src={place.photos} alt="" />
       <br/>
+      <CustomRating/>
     </div>
   );
 };
