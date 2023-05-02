@@ -1,7 +1,7 @@
 .user-groups-container{
         /* padding: 16px; */
         position: fixed;
-        top: 0;
+        /* top: 0; */
         width: auto;
         margin-left: 400px;
         display: flex;
