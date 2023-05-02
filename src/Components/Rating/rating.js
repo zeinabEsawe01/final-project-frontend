@@ -10,17 +10,7 @@ function CustomRating() {
     return (
         <Box sx={{ '& > legend': { mt: 2 },}} >
             <div>
-                <Typography component="legend">Controlled</Typography>
-                <Rating  value={ratingValue} onChange={(event, newValue) => { setRatingValue(newValue) }} />
-            </div>
-
-            <div>
-                <Typography component="legend">Controlled</Typography>
-                <Rating  value={ratingValue} onChange={(event, newValue) => { setRatingValue(newValue) }} />
-            </div>
-
-            <div>
-                <Typography component="legend">Controlled</Typography>
+                <Typography component="legend">Family</Typography>
                 <Rating  value={ratingValue} onChange={(event, newValue) => { setRatingValue(newValue) }} />
             </div>
         </Box>

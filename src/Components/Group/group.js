@@ -63,7 +63,7 @@ console.log(user)
           <FontAwesomeIcon icon={faHeart} />
         </button>
         <button className="leave-group" onClick={handleLeaveGroupClick}>
-          Leave group
+          Leave
         </button>
         </div>
         </Form>

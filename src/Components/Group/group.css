@@ -1,6 +1,6 @@
 .catalog-item-info {
     display: block;
-    background-color: rgba(248, 204, 7, 0.767);
+    background-color: lightskyblue;
     width: 200px;
     height: 200px;
     margin: 5px;
@@ -28,13 +28,13 @@
   }
   
   .favorite-button.active {
-    color: red;
+    color: lightcoral;
   }
 
   .leave-group {
-    background-color: red;
+    background-color: lightcoral;
     width: 60px;
-    height: 60px;
+    height: 40px;
     margin-left: 50px;
     margin-top: 60px;
   }
