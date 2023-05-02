@@ -4,7 +4,6 @@ import { Combobox, ComboboxInput, ComboboxPopover, ComboboxList, ComboboxOption}
 
 function AutocompletePlaces({setCoordinates,setCoordinatesCopy}) {
     const { ready, value, setValue, suggestions: { status, data }, clearSuggestions} = usePlacesAutocomplete();
-
     const handleSelect = async (address) => {
         setValue(address, false);
         clearSuggestions();

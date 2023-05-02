@@ -1,4 +1,7 @@
-.place-container .user-groups {
+.user-groups-container{
+  margin-right: 5px;
+}
+.user-groups-container .user-groups {
   font-size: 16px;
   margin-bottom: 10px;
 }

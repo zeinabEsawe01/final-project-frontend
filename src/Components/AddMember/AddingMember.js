@@ -46,6 +46,7 @@ console.log(newMember);
     }, []);
 
     function handleSearch(){
+      console.log(members);
        members.map(m =>  m.userName === member.name ? 
         setExistmember(true) && setMember({name : m.userName}) 
         : null

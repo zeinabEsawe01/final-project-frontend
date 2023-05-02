@@ -8,7 +8,7 @@ const divStyle={
     overflowY: 'scroll',
     width:'700px',
     float: 'left',
-    height:'1000px',
+    height:'600px',
     position:'relative'
 };
 

@@ -1,7 +1,4 @@
-import { useState , useEffect } from "react";
 import { GoogleMap, useLoadScript, Marker} from "@react-google-maps/api";
-import AutocompletePlaces from "./PlacesAutocomplete";
-import axios from "axios";
 import './map.css'
 
 
@@ -13,6 +10,7 @@ const mapOptions = {
         lat: 32.0853,
         lng: 34.7818,
     },
+    
 };
 
 

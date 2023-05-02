@@ -64,6 +64,7 @@ function GroupForm({user, setShowForm , updateGroups}) {
         <label htmlFor="group-type-select">Group Type</label>
         <div className="group-type-select-container">
           <select id="group-type-select" onChange={(e) => setGroupType(e.target.value)}>
+            <option>Choose Type</option>
             {groupTypes.map((type) => (
               <option key={type} value={`${type}`}>
                 {type}
