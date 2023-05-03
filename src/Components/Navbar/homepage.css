@@ -1,0 +1,42 @@
+.navbar {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+  }
+  
+  .navbar-brand {
+    font-size: 28px;
+    font-weight: 700;
+  }
+  
+  .nav-link {
+    font-size: 18px;
+    font-weight: 500;
+    margin-right: 20px;
+  }
+  
+  .navbar-toggler {
+    border: none;
+  }
+  
+  .navbar-toggler-icon {
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"%3e%3cpath stroke="rgba(0, 0, 0, 0.5)" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3e%3c/svg%3e');
+    width: 100%;
+}
+  
+  .navbar-nav .btn {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  #signup {
+    margin-left: 1050px;
+  }
+  #signup, #login {
+    color: 178374;
+    font-size: 18px;
+    font-weight: 500;
+    margin-right: 30px;
+  }
+  
+  
