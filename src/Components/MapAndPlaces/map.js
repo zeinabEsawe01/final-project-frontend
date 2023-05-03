@@ -16,7 +16,7 @@ const mapOptions = {
 
 export default function Home({coordinates}) {
     const { isLoaded } = useLoadScript({
-        googleMapsApiKey: 'AIzaSyATcUPRpd0dtYZWBetco0_9cP3qYQ7Y3g8',
+        googleMapsApiKey: '',
         libraries: ["places"],
     });
 

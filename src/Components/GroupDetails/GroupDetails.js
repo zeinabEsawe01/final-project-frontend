@@ -46,6 +46,7 @@ const GroupDetails = ({ user, userGroup, updateGroupVoting }) => {
         ))}
       </div>
       <div className="places-container">
+      <h4>Places Suggested:</h4>
         {places.map((p,index) =>
                         <div>
                            <Place  key={index}  place={p} />
